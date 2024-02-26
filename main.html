@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Duck Hunt</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/gamestyles.css">
@@ -26,24 +26,40 @@
             </div>
             <div class="settings" id="settingsView" style="display: none;">
                 <div class="settingsControls">
-                    <button id="difficultySlider">Difficulty</button>
-                    <button id="soundToggle">Sound</button>
-                    <button id="musicToggle">Music</button>
-                    <button id="back">Back</button>
+                    <div>
+                        <p id="difficultySlider">Difficulty</p>
+                        <input type="radio" id="easy" name="difficulty" value="1" checked>
+                        <label for="easy">Easy</label>
+                        <input type="radio" id="normal"name="difficulty" value="2">
+                        <label for="normal">Normal</label>
+                        <input type="radio" id="hard" name="difficulty" value="3">
+                        <label for="hard">Hard</label>
+                        
+                    </div>
+                    <div>
+                        <p id="soundToggle">Sound</p>
+                        <input type="range" min="0" max="10">
+                    </div>
+                    <div>
+                       <p id="musicToggle">Music</p> 
+                       <input type="checkbox" checked>
+                    </div>
+                    <div>
+                        <button id="back">Back</button>
+                    </div>
+                    
+                    
                 </div>
             </div>
             <div class="game" id="game" style="display: none;">
-
-
+                <h1>Game view</h1>
             </div>
             <div class="pauseMenu" id="pause" style="display: none;">
-                <button class="resume">Resume</button>
-                <button class="settings">Settings</button>
-                <button class="exit">Main Menu</button>
+                <button class="resume" id="resume">Resume</button>
+                <button class="exit" id="exit">Main Menu</button>
             </div>
         
         <script src="/program/gameapp.js" async defer></script>
         <script src="/program/menuapp.js" async defer></script>
-        <script src="/program/pausemenuapp.js" async defer></script>
     </body>
 </html>

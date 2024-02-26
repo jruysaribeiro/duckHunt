@@ -17,6 +17,16 @@
     background-repeat: no-repeat;
 }
 
+#settingsView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/imgs/menuBg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .title {
     display: flex;
     color: #E86850;
@@ -25,7 +35,17 @@
     align-items: center;
     justify-content: center;
 }
+
 .title h1 {
+    display: flex;
+    align-self: center;
+    font-size: 6rem;
+    text-align: center;
+    margin: 10px;
+    color: #E86850;
+}
+
+.title h2 {
     display: flex;
     align-self: center;
     font-size: 6rem;
@@ -43,6 +63,35 @@
     font-size: 2em;
 }
 
+.settingsControls {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.settingsControls > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.settingsControls button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    color: #587498;
+}
+
+.settingsControls button:hover {
+    background-color: #587498;
+    color: white;
+}
+
 .menuControls button {
     padding: 10px;
     font-size: 1em;
@@ -51,6 +100,27 @@
 }
 
 .menuControls button:hover {
+    background-color: #587498;
+    color: white;
+}
+
+.pauseMenu {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+    font-size: 2em;
+}
+
+.pauseMenu button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    color: #587498;
+}
+
+.pauseMenu button:hover {
     background-color: #587498;
     color: white;
 }
