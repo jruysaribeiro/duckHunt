@@ -6,11 +6,44 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/styles/styles.css">
-    </head>
+        <link rel="stylesheet" href="/styles/gamestyles.css">
+        <link rel="stylesheet" href="/styles/menustyles.css">
+        <link rel="stylesheet" href="/styles/pausemenustyles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+        </head>
     <body>
-            <h1>DUCK HUNT</h1>
+            <div class="menu" id="menu">
+                <div class="title">
+                    <h1>Duck Hunt</h1>
+                </div>
+                <div class="menuControls">
+                    <button class="start" id="start">Start</button>
+                    <button class="settings" id="settings">Settings</button>
+                </div>
+                
+            </div>
+            <div class="settings" id="settingsView" style="display: none;">
+                <div class="settingsControls">
+                    <button id="difficultySlider">Difficulty</button>
+                    <button id="soundToggle">Sound</button>
+                    <button id="musicToggle">Music</button>
+                    <button id="back">Back</button>
+                </div>
+            </div>
+            <div class="game" id="game" style="display: none;">
+
+
+            </div>
+            <div class="pauseMenu" style="display: none;">
+                <button class="resume">Resume</button>
+                <button class="settings">Settings</button>
+                <button class="exit">Main Menu</button>
+            </div>
         
-        <script src="/program/app.js" async defer></script>
+        <script src="/program/gameapp.js" async defer></script>
+        <script src="/program/menuapp.js" async defer></script>
+        <script src="/program/pausemenuapp.js" async defer></script>
     </body>
 </html>
