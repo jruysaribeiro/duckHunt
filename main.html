@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/gamestyles.css">
         <link rel="stylesheet" href="/styles/menustyles.css">
-        <link rel="stylesheet" href="/styles/pausemenustyles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -52,6 +51,7 @@
             <div class="game" id="game" style="display: none;">
                 <div class="gameScreen">
                     <div class="sky" id="sky">
+                        <img src="/resources/sprites/duck/flyright.gif" alt="" id="duck" style="display: none;">
                     </div>
                     <div class="grass" id="grass">
                     </div>
@@ -61,22 +61,11 @@
                     <div class="bullets" id="ammo">
                         <p>Bullets</p>
                         
-                        <p>Right-click to reload</p>
+                        <p>R to reload</p>
                     </div>
-                    <div class="hit">
+                    <div class="hit" id="hit">
                         <p>Hit</p>
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
-                        <img src="/resources/sprites/scoreImages/hit/duckwhite.png" alt="" class="hudDuck">
+                        
                     </div>
                     <div class="score">
                         <p>Score</p>
