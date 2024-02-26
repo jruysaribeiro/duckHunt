@@ -1,0 +1,78 @@
+.gameScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    position: relative;
+    cursor: crosshair;
+}
+
+#sky, #grass {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+}
+
+#sky {
+    background: url(/resources/sprites/background/sky1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#grass {
+    background: url(/resources/sprites/background/bushes.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#hud {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+}
+
+.bullets {
+    border: 5px solid black;
+}
+
+.hit {
+    border: 5px solid black;
+    grid-column: 2/3;
+}
+
+.score {
+    border: 5px solid black;
+}
+
+#bullet {
+    width: auto;
+    height: 70px;
+    margin: 0;
+}
+
+.hudDuck {
+    width: auto;
+    height: 50px;
+    margin: 10px;
+}
+
+#score {
+    font-size: 2em;
+    text-align: center;
+    margin: 10px;
+}
+

@@ -1,7 +1,7 @@
 const startControl = document.getElementById('start');
 
 startControl.addEventListener('click', () => {
-    console.log('start clicked');
+    console.log('start clicked');       
     document.getElementById('menu').style.display = 'none';
     document.getElementById('game').style.display = 'block';
 });
@@ -22,7 +22,7 @@ const pauseControl = document.getElementById('game');
             if(event.key === 'q') {
                 console.log('resumed');
                 document.getElementById('pause').style.display = 'none';
-                document.getElementById('game').style.display = 'flex';
+                document.getElementById('game').style.display = 'block';
             }
             return;
         }
@@ -56,8 +56,24 @@ const resumeButton = document.getElementById('resume');
 resumeButton.addEventListener('click', () => {
     console.log('resume clicked');
     document.getElementById('pause').style.display = 'none';
-    document.getElementById('game').style.display = 'flex';
+    document.getElementById('game').style.display = 'block';
 }
 );
+
+const shopMenu = document.getElementById('shop');
+
+shopMenu.addEventListener('click', () => {
+    console.log('shop clicked');
+    document.getElementById('pause').style.display = 'none';
+    document.getElementById('shopView').style.display = 'block';
+});
+
+const shopExit = document.getElementById('shopExit');
+
+shopExit.addEventListener('click', () => {
+    console.log('shop exit clicked');
+    document.getElementById('shopView').style.display = 'none';
+    document.getElementById('pause').style.display = 'block';
+});
 
 
