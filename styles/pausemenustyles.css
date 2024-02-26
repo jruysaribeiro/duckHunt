@@ -1,0 +1,20 @@
+.pauseMenu {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+    font-size: 2em;
+}
+
+pauseMenu button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    color: #587498;
+}
+
+pauseMenu button:hover {
+    background-color: #587498;
+    color: white;
+}
