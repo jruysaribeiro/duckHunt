@@ -58,7 +58,7 @@
     border: 5px solid black;
 }
 
-#bullet {
+.bullet {
     width: auto;
     height: 70px;
     margin: 0;
