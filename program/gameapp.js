@@ -1,3 +1,15 @@
+const pistol = {
+    name: "pistol",
+    damage: 1,
+    fireRate: 1,
+    reloadTime: 1,
+    magazineSize: 10,
+    ammo: 10,
+    bulletImage: "/resources/sprites/bullets/pistolBullet.png",
+    pistolSound: "/resources/sounds/gunshot.wav"
+}
+
+
 let magazineSize = 10;
 let ammo = document.getElementById('ammo');
 let weapon = "pistol";

@@ -20,7 +20,7 @@ body {
 }
 
 #sky {
-    background: url(/resources/sprites/background/sky1.png);
+    background: #63ADFF;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
