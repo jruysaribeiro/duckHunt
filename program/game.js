@@ -50,11 +50,12 @@ export let startGame = function() {
     // show round number and update duck difficulty if needed
     roundHandler();
     setAmmo(weapon);
-    // start
 };
 
 export let roundHandler = function() {
     showMessage("Round " + round + "!" + " Get ready!");
+    duckModule.updateDuckSpeed(round);
+    hitCounter = 0;
 }
 
 export let duckCounter = document.getElementById("hit");
@@ -66,7 +67,10 @@ export function addHitToHud() {
     newDuckToCounter.className = "hudDuck";
     duckCounter.appendChild(newDuckToCounter);
     if (hitCounter === 10) {
-        showMessage("Round 1 finished! You hit 10 ducks!");
+        showMessage("Round " + round + " finished! You hit 10 ducks!");
+        round++;
+        hitCounter = 0;
+        duckCounter.innerHTML = "";
     }
 };
 

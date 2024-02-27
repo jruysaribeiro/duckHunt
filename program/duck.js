@@ -2,8 +2,6 @@ import * as playerModule from './player.js';
 import * as gameModule from './game.js';
 import * as weaponModule from './weapon.js';
 
-let hitCounter = 0; // Initialize hit counter
-
 
 
 let scoreHud = document.getElementById('score');

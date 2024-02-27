@@ -12,8 +12,8 @@ export const pistol = {
     numOfBullets: 10,
     price: 0,
     bulletImage: "/resources/sprites/bullets/pistolBullet.png",
-    pistolSound: "/resources/sounds/gunshot.wav",
-    pistolCursor: "/resources/sprites/cursors/pistolCursor.png"
+    sound: "/resources/sounds/gunshot.wav",
+    cursor: "/resources/sprites/cursors/pistolCursor.png"
 }
 
 export const shotgun = {
@@ -25,8 +25,8 @@ export const shotgun = {
     numOfBullets: 5,
     price: 100,
     bulletImage: "/resources/sprites/bullets/shotgunBullet.png",
-    shotgunSound: "/resources/sounds/shotgun.wav",
-    shotgunCursor: "/resources/sprites/cursors/shotgunCursor.png"
+    sound: "/resources/sounds/shotgun.wav",
+    cursor: "/resources/sprites/cursors/shotgunCursor.png"
 }
 
 export const machinegun = {
@@ -38,8 +38,8 @@ export const machinegun = {
     numOfBullets: 30,
     price: 200,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
-    machinegunSound: "/resources/sounds/machinegun.wav",
-    machinegunCursor: "/resources/sprites/cursors/machinegunCursor.png"
+    sound: "/resources/sounds/machinegun.wav",
+    cursor: "/resources/sprites/cursors/machinegunCursor.png"
 }
 
 export const sniper = {
@@ -51,8 +51,8 @@ export const sniper = {
     numOfBullets: 5,
     price: 300,
     bulletImage: "/resources/sprites/bullets/sniperBullet.png",
-    sniperSound: "/resources/sounds/sniper.wav",
-    sniperCursor: "/resources/sprites/cursors/sniperCursor.png"
+    sound: "/resources/sounds/sniper.wav",
+    cursor: "/resources/sprites/cursors/sniperCursor.png"
 }
 
 export const rocketLauncher = {
@@ -64,13 +64,13 @@ export const rocketLauncher = {
     numOfBullets: 1,
     price: 500,
     bulletImage: "/resources/sprites/bullets/rocket.png",
-    rocketSound: "/resources/sounds/rocket.wav",
-    rocketCursor: "/resources/sprites/cursors/rocketCursor.png"
+    sound: "/resources/sounds/rocket.wav",
+    rcursor: "/resources/sprites/cursors/rocketCursor.png"
 }
 
 
 export let weapon = pistol;
-export let gunshot = new Audio(weapon.pistolSound);
+export let gunshot = new Audio(weapon.sound);
 
 
 
