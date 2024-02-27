@@ -1,9 +1,14 @@
+import * as gameModule from './game.js';
+import * as weaponModule from './weapon.js';
+import * as playerModule from './player.js';
+
 const startControl = document.getElementById('start');
 
 startControl.addEventListener('click', () => {
     console.log('start clicked');       
     document.getElementById('menu').style.display = 'none';
     document.getElementById('game').style.display = 'block';
+    gameModule.startGame();
 });
 
 const settingControls = document.getElementById('settings');
@@ -75,5 +80,7 @@ shopExit.addEventListener('click', () => {
     document.getElementById('shopView').style.display = 'none';
     document.getElementById('pause').style.display = 'block';
 });
+
+
 
 

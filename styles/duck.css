@@ -1,0 +1,125 @@
+.duck {
+    background: url(/resources/sprites/PikPng.com_duck-hunt-png_1397308.png) no-repeat;
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    animation: fly-right 0.5s steps(3) infinite;
+    z-index: 2;
+}
+
+@keyframes fly-right {
+    0% { background-position: -1px -220px; }
+    100% { background-position: -245px -220px; }
+}
+.fly-right {
+    animation: fly-right 0.5s steps(3) infinite;
+}
+
+@keyframes fly-left {
+    0% { 
+        background-position: -1px -220px;
+        transform: rotateY(180deg);
+     }
+    100% { 
+        background-position: -245px -220px;
+        transform: rotateY(180deg);
+     }
+}
+.fly-left {
+    animation: fly-left 0.5s steps(3) infinite;
+}
+
+@keyframes fly-up {
+    0% { background-position: -1px -379px;}
+    100% { background-position: -245px -381px;}
+}
+.fly-up {
+    animation: fly-up 0.5s steps(3) infinite;
+}
+
+@keyframes fly-down {
+    0% { 
+        background-position: -1px -379px;
+        transform: rotate(180deg);
+    }
+    100% { 
+        background-position: -245px -381px;
+        transform: rotate(180deg);
+    }
+}
+.fly-down {
+    animation: fly-down 0.5s steps(3) infinite;
+}
+
+@keyframes fly-up-right {
+    0% { background-position: -9px -299px; }
+    100% { background-position: -245px -299px; }
+}
+.fly-up-right {
+    animation: fly-up-right 0.5s steps(3) infinite;
+}
+
+@keyframes fly-up-left {
+    0% { 
+        background-position: -9px -299px; 
+        transform: rotateY(180deg);
+    }
+    100% { 
+        background-position: -245px -299px; 
+        transform: rotateY(180deg);}
+}
+.fly-up-left {
+    animation: fly-up-left 0.5s steps(3) infinite;
+}
+
+@keyframes fly-down-right {
+    0% { 
+        background-position: -9px -299px; 
+        transform: rotate(90deg);
+    }
+    100% { 
+        background-position: -245px -299px; 
+        transform: rotate(90deg);
+    }
+}
+.fly-down-right {
+    animation: fly-down-right 0.5s steps(3) infinite;
+}
+
+@keyframes fly-down-left {
+    0% { 
+        background-position: -9px -299px; 
+        transform: rotate(-90deg) rotateY(180deg);
+    }
+    100% { 
+        background-position: -245px -299px; 
+        transform: rotate(-90deg) rotateY(180deg);
+    }
+}
+.fly-down-left {
+    animation: fly-down-left 0.5s steps(3) infinite;
+}
+
+@keyframes fall-down {
+    0% { 
+        background-position: -97px -459px;
+        transform: scaleX(1);
+    }
+    100% { 
+        background-position: -97px -459px;
+        transform: scaleX(-1);
+    }
+}
+.fall-down {
+    animation: fall-down 10s steps(3);
+    animation-iteration-count: 1;
+}
+
+.duckHit {
+    background: url(/resources/sprites/duck/hit.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
