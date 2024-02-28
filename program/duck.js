@@ -41,10 +41,6 @@ function handleDuckHit() {
 
         duck.style.animationName = 'fall-down';
 
-        duck.addEventListener('animationend', function() {
-            duck.style.animationName = '';
-        }, { once: true });
-
         gameModule.addHitToHud();
 
         animateDuckFalling();

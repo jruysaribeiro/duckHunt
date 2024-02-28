@@ -11,8 +11,9 @@ export let scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
+
 //Weapon Variables
-export const weapon = weaponModule.machinegun;
+export const weapon = weaponModule.pistol;
 console.log(weapon);
 export let ammo = document.getElementById('ammo');
 export let gunshot = new Audio(weapon.sound);
@@ -32,6 +33,7 @@ gameScreen.addEventListener('click', () => {
     }
     fire(weapon);
   });
+
   export let updateAmmo = function() {
     let bullets = ammo.getElementsByClassName('bullet');
     if (bullets.length > 0) {
@@ -113,6 +115,8 @@ export function addHitToHud() {
 };
 export function addHit() {
     hitCounter++;
+    bulletTimeCounter++;
+    updateBulletTimeMeter();
 }
 
 
@@ -145,10 +149,50 @@ export function showMessage(message) {
     setTimeout(function() {
         gameDiv.removeChild(messageDiv);
     }, 2000);
-}
+};
 
 //Commit do André
+// Bullet time logic
+let bulletTimeCounter = 5;
+const maxBulletTimeBars = 5;
+let isBulletTimeReady = false;
 
+function updateBulletTimeMeter(){
+
+    const bars = document.querySelectorAll(".bullet-time-bar");
+
+    // Fill the bars based on bulletTimeCounter
+    bars.forEach((bar, index) => {
+        if (index < bulletTimeCounter){
+            bar.style.backgroundColor = "black";
+        } else {
+            bar.style.backgroundColor = "white";
+        }
+    });
+
+    // Check if bullet time is ready to be activated
+    if (bulletTimeCounter >= maxBulletTimeBars){
+        isBulletTimeReady = true;
+        console.log("Bullet time is ready!");
+        document.getElementById("bullet-time-container").style.backgroundColor = "green";
+    }
+
+};
+
+function resetBulletTimeMeter(){
+    bulletTimeCounter = 0;
+    isBulletTimeReady = false;
+    updateBulletTimeMeter();
+};
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "b" && isBulletTimeReady){
+        console.log("Bullet time activated! 🔫")
+        // we slow down time here
+        // after 10 secs or something:
+        // resetBulletTimeMeter();  
+    }
+});
 
 
 
