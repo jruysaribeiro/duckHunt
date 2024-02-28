@@ -12,7 +12,7 @@ scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
 //Weapon Variables
-export const weapon = weaponModule.pistol;
+export const weapon = weaponModule.machinegun;
 console.log(weapon);
 export let ammo = document.getElementById('ammo');
 export let gunshot = new Audio(weapon.sound);
@@ -21,8 +21,6 @@ export let gunshot = new Audio(weapon.sound);
 
 
 //Player Variables
-
-
 
 
 

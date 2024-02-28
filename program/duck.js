@@ -50,11 +50,7 @@ function handleDuckHit() {
         animateDuckFalling();
         duckCount++;
         console.log("duckCount= " + duckCount);
-        
     }
-
-    
-    
 }
 
 function animateDuckFalling() {
