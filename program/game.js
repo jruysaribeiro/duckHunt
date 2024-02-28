@@ -6,6 +6,10 @@ let round = 1;
 
 export const gameScreen = document.getElementById('game');
 
+function updateLocalScore() {
+    playerModule.updateLocalScore();
+}
+
 export function showMessage(message) {
     // Get the game div
     let gameDiv = document.getElementById('game');
@@ -40,7 +44,7 @@ gameScreen.addEventListener('click', () => {
     fire(weapon);
   });
 
-export let score = playerModule.player.score;
+export let score = playerModule.getScore();
 
 export let scoreHud = document.getElementById('score');
 
@@ -56,6 +60,7 @@ export let roundHandler = function() {
     showMessage("Round " + round + "!" + " Get ready!");
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
+    updateLocalScore();
 }
 
 export let duckCounter = document.getElementById("hit");

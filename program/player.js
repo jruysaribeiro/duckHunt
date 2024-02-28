@@ -1,6 +1,7 @@
 export const player = {
     score: 0
-}
+};
+
 
 localStorage.setItem('score', '0');
 
@@ -15,3 +16,8 @@ export const getScore = function() {
     player.score = parseInt(score);
     return player.score;
 }
+
+export const updateLocalScore = function() {
+    localStorage.setItem('score', player.score);
+}
+
