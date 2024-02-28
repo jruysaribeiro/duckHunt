@@ -11,6 +11,8 @@ let positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0
 let positionY = 0;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
+let speed = 2;
+console.log("speed= " + speed);
 
 function handleDuckHit() {
     if(gameModule.numOfBullets() <= 0) {
@@ -78,8 +80,8 @@ function moveDuck() {
     let deltaTime = currentTime - lastFrameTime;
     let buffer = 100; 
     if (deltaTime >= 10) { 
-        positionY += 2; 
-        positionX += 2 * direction; 
+        positionY += speed; 
+        positionX += speed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
         if (positionY >= window.innerHeight + buffer || positionX < -buffer || positionX >= window.innerWidth + buffer) { 
@@ -103,6 +105,11 @@ function duckSprite(direction)  {
         duck.classList.remove('flyrightup');
         duck.classList.add('flyleftup');
     }
+}
+
+export function updateDuckSpeed(round) {
+    speed = 2 + round * 0.5;
+    console.log("speed= " + speed);
 }
 
 setTimeout(() => {

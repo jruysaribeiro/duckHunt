@@ -99,11 +99,12 @@ export function addHitToHud() {
     newDuckToCounter.src = "/resources/sprites/scoreImages/hit/duckwhite.png";
     newDuckToCounter.className = "hudDuck";
     duckCounter.appendChild(newDuckToCounter);
-    if (hitCounter === 10) {
+    if (hitCounter === 5) {
         showMessage("Round " + round + " finished! You hit 10 ducks!");
         round++;
         hitCounter = 0;
         duckCounter.innerHTML = "";
+        roundHandler();
     }
 };
 export function addHit() {
