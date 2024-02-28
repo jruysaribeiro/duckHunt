@@ -63,7 +63,6 @@ function moveDuck() {
     if (duckHit) {
         return;
     }
-
     // Remove all animation classes
     duck.className = 'duck';
     duck.style.display = "block";

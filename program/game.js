@@ -13,6 +13,7 @@ export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
 //Weapon Variables
 const weapon = weaponModule.weapon;
+console.log(weapon);
 export let ammo = document.getElementById('ammo');
 
 
@@ -86,9 +87,8 @@ export let startGame = function() {
     roundHandler();
 };
 let roundHandler = function() {
-    showMessage("Round " + round + "!" + " Get ready!");
     setAmmo(weapon);
-    reload(weapon);
+    showMessage("Round " + round + "!" + " Get ready!");
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
     updateLocalScore();
