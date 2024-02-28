@@ -65,11 +65,11 @@ export const rocketLauncher = {
     price: 500,
     bulletImage: "/resources/sprites/bullets/rocket.png",
     sound: "/resources/sounds/rocket.wav",
-    rcursor: "/resources/sprites/cursors/rocketCursor.png"
+    cursor: "/resources/sprites/cursors/rocketCursor.png"
 }
 
 
-export let weapon = pistol;
+export const weapon = pistol;
 export let gunshot = new Audio(weapon.sound);
 
 
