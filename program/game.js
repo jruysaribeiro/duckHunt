@@ -133,7 +133,7 @@ export let numOfBullets = function() {
 
 
 // Bullet time logic
-let bulletTimeCounter = 0;
+let bulletTimeCounter = 5;
 const maxBulletTimeBars = 5;
 let isBulletTimeReady = false;
 
