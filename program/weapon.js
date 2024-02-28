@@ -34,8 +34,8 @@ export const machinegun = {
     damage: 1,
     fireRate: 3,
     reloadTime: 3,
-    magazineSize: 30,
-    numOfBullets: 30,
+    magazineSize: 24,
+    numOfBullets: 24,
     price: 200,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
     sound: "/resources/sounds/machinegun.wav",
@@ -69,8 +69,6 @@ export const rocketLauncher = {
 }
 
 
-export const weapon = pistol;
-export let gunshot = new Audio(weapon.sound);
 
 
 

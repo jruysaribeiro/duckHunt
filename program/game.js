@@ -4,7 +4,7 @@ import * as weaponModule from './weapon.js';
 import * as duckModule from './duck.js';
 
 //Game Variables
-let round = 1;
+export let round = 1;
 export const gameScreen = document.getElementById('game');
 export let score = playerModule.getScore();
 export let scoreHud = document.getElementById('score');
@@ -12,10 +12,10 @@ scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
 //Weapon Variables
-const weapon = weaponModule.weapon;
+export const weapon = weaponModule.pistol;
 console.log(weapon);
 export let ammo = document.getElementById('ammo');
-
+export let gunshot = new Audio(weapon.sound);
 
 //Duck Variables
 
@@ -28,6 +28,10 @@ export let ammo = document.getElementById('ammo');
 
 //Weapon Functions
 gameScreen.addEventListener('click', () => {
+    if(weapon === weaponModule.machinegun) {
+        fire(weapon);
+        fire(weapon);
+    }
     fire(weapon);
   });
   export let updateAmmo = function() {
@@ -48,22 +52,23 @@ export let setAmmo = function(weapon) {
 
 document.addEventListener('keydown', (event) => {
     if(event.key === "r" || event.key === "R") {
-        reload(weapon);
+        showMessage("Reloading!");
+        setTimeout(() => reload(weapon), weapon.reloadTime + 2000);
     }
 });
 
 export let reload = function(weapon) {
-    console.log("Reload");
     setAmmo(weapon);
+    showMessage("Reloaded!");
 }
 
 export let fire = function(weapon) {
     if(numOfBullets() <= 0) {
         return;
     }
-    weaponModule.gunshot.pause();
-    weaponModule.gunshot.currentTime = 0;
-    weaponModule.gunshot.play();
+    gunshot.pause();
+    gunshot.currentTime = 0;
+    gunshot.play();
     updateAmmo(weapon);
     console.log("Fire");
 }
@@ -87,7 +92,9 @@ export let startGame = function() {
     roundHandler();
 };
 let roundHandler = function() {
-    setAmmo(weapon);
+    if (round === 1){
+        setAmmo(weapon);
+    }
     showMessage("Round " + round + "!" + " Get ready!");
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
@@ -100,7 +107,6 @@ export function addHitToHud() {
     newDuckToCounter.className = "hudDuck";
     duckCounter.appendChild(newDuckToCounter);
     if (hitCounter === 5) {
-        showMessage("Round " + round + " finished! You hit 10 ducks!");
         round++;
         hitCounter = 0;
         duckCounter.innerHTML = "";
@@ -126,7 +132,7 @@ export function showMessage(message) {
     // Style the div to be centered in the game div
     messageDiv.style.position = 'absolute';
     messageDiv.style.left = '50%';
-    messageDiv.style.top = '50%';
+    messageDiv.style.top = '70%';
     messageDiv.style.transform = 'translate(-50%, -50%)';
     messageDiv.style.padding = '20px';
     messageDiv.style.backgroundColor = 'white';
@@ -140,7 +146,7 @@ export function showMessage(message) {
     // Remove the div after 5 seconds
     setTimeout(function() {
         gameDiv.removeChild(messageDiv);
-    }, 5000);
+    }, 2000);
 }
 
 

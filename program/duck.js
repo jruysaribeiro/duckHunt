@@ -12,7 +12,14 @@ let positionY = 0;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
 let speed = 2;
+let healthIncrement = 0;
+let health = 1 + healthIncrement;
+let duckCount = 0;
 console.log("speed= " + speed);
+
+export function updateHealth(int) {
+    health =  health + int;
+}
 
 function handleDuckHit() {
     if(gameModule.numOfBullets() <= 0) {
@@ -20,22 +27,34 @@ function handleDuckHit() {
         return;
     }
     console.log('Duck was hit');
-    gameModule.addHit();
-    playerModule.player.score += 100;
-    scoreHud.textContent = playerModule.player.score;
-    duckHit = true;
+    console.log("health = " + health);
+    health = health - gameModule.weapon.damage;
+    console.log("damage = " + gameModule.weapon.damage);
+    console.log("health = " + health);
+    if(health <= 0) {
+        gameModule.addHit();
+        playerModule.player.score += 100 + gameModule.round * 100;
+        scoreHud.textContent = playerModule.player.score;
+        duckHit = true;
 
-    duck.className = 'duck';
+        duck.className = 'duck';
 
-    duck.style.animationName = 'fall-down';
+        duck.style.animationName = 'fall-down';
 
-    duck.addEventListener('animationend', function() {
-        duck.style.animationName = '';
-    }, { once: true });
+        duck.addEventListener('animationend', function() {
+            duck.style.animationName = '';
+        }, { once: true });
 
-    gameModule.addHitToHud();
+        gameModule.addHitToHud();
 
-    animateDuckFalling();
+        animateDuckFalling();
+        duckCount++;
+        console.log("duckCount= " + duckCount);
+        
+    }
+
+    
+    
 }
 
 function animateDuckFalling() {
@@ -62,6 +81,11 @@ duck.addEventListener('click', handleDuckHit);
 
 
 function moveDuck() {
+    if(duckCount >= 5){
+        healthIncrement++;
+        duckCount = 0;
+    }
+    health = 1 + healthIncrement;
     if (duckHit) {
         return;
     }
@@ -95,6 +119,7 @@ function moveDuck() {
         lastFrameTime = currentTime;
     }
     requestAnimationFrame(moveDuck);
+    
 }
 
 function duckSprite(direction)  {
