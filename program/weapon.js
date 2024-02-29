@@ -25,7 +25,7 @@ export const shotgun = {
     numOfBullets: 5,
     price: 100,
     bulletImage: "/resources/sprites/bullets/shotgunBullet.png",
-    sound: "/resources/sounds/shotgun.wav",
+    sound: "/resources/sounds/shotgunshot.wav",
     cursor: "/resources/sprites/cursors/shotgunCursor.png"
 }
 
@@ -38,7 +38,7 @@ export const machinegun = {
     numOfBullets: 24,
     price: 200,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
-    sound: "/resources/sounds/machinegun.wav",
+    sound: "/resources/sounds/akshot.wav",
     cursor: "/resources/sprites/cursors/machinegunCursor.png"
 }
 
@@ -51,7 +51,7 @@ export const sniper = {
     numOfBullets: 5,
     price: 300,
     bulletImage: "/resources/sprites/bullets/sniperBullet.png",
-    sound: "/resources/sounds/sniper.wav",
+    sound: "/resources/sounds/snipershot.wav",
     cursor: "/resources/sprites/cursors/sniperCursor.png"
 }
 
@@ -64,7 +64,7 @@ export const rocketLauncher = {
     numOfBullets: 1,
     price: 500,
     bulletImage: "/resources/sprites/bullets/rocket.png",
-    sound: "/resources/sounds/rocket.wav",
+    sound: "/resources/sounds/bazookashot.wav",
     cursor: "/resources/sprites/cursors/rocketCursor.png"
 }
 
