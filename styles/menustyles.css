@@ -396,10 +396,10 @@
   }
   
   .slider::after {
-    content: 'OFF';
+    content: 'ON';
     width: 25px;
     height: 25px;
-    background-color: #e03c3c;
+    background-color: #05ae3e;
     border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, .25);
@@ -414,8 +414,8 @@
   }
   
   #toggle:checked + .slider::after {
-    content: 'ON';
-    background-color: #05ae3e;
+    content: 'OFF';
+    background-color: #e03c3c;
     transform: translateX(25px) rotate(360deg);
   }
   
