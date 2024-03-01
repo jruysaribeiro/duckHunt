@@ -16,6 +16,19 @@ export const pistol = {
     cursor: "/resources/sprites/cursors/pistolCursor.png"
 }
 
+export const bow = {
+    name: "bow",
+    damage: 5,
+    fireRate: 1,
+    reloadTime: 3,
+    magazineSize: 1,
+    numOfBullets: 1,
+    price: 2000,
+    bulletImage: "/resources/sprites/bullets/arrow.png",
+    sound: "/resources/sounds/bow.wav",
+    cursor: "/resources/sprites/cursors/bowCursor.png"
+}
+
 export const shotgun = {
     name: "shotgun",
     damage: 2,
@@ -25,7 +38,7 @@ export const shotgun = {
     numOfBullets: 5,
     price: 100,
     bulletImage: "/resources/sprites/bullets/shotgunBullet.png",
-    sound: "/resources/sounds/shotgun.wav",
+    sound: "/resources/sounds/shotgunshot.wav",
     cursor: "/resources/sprites/cursors/shotgunCursor.png"
 }
 
@@ -34,11 +47,11 @@ export const machinegun = {
     damage: 1,
     fireRate: 3,
     reloadTime: 3,
-    magazineSize: 30,
-    numOfBullets: 30,
+    magazineSize: 24,
+    numOfBullets: 24,
     price: 200,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
-    sound: "/resources/sounds/machinegun.wav",
+    sound: "/resources/sounds/akshot.wav",
     cursor: "/resources/sprites/cursors/machinegunCursor.png"
 }
 
@@ -51,7 +64,7 @@ export const sniper = {
     numOfBullets: 5,
     price: 300,
     bulletImage: "/resources/sprites/bullets/sniperBullet.png",
-    sound: "/resources/sounds/sniper.wav",
+    sound: "/resources/sounds/snipershot.wav",
     cursor: "/resources/sprites/cursors/sniperCursor.png"
 }
 
@@ -64,13 +77,11 @@ export const rocketLauncher = {
     numOfBullets: 1,
     price: 500,
     bulletImage: "/resources/sprites/bullets/rocket.png",
-    sound: "/resources/sounds/rocket.wav",
-    rcursor: "/resources/sprites/cursors/rocketCursor.png"
+    sound: "/resources/sounds/bazookashot.wav",
+    cursor: "/resources/sprites/cursors/rocketCursor.png"
 }
 
 
-export let weapon = pistol;
-export let gunshot = new Audio(weapon.sound);
 
 
 

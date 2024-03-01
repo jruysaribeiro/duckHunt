@@ -66,13 +66,26 @@
     background-repeat: no-repeat;
 }
 
+.settingsTitle h1 {
+    display: flex;
+    align-self: center;
+    font-size: 5rem;
+    text-align: center;
+    margin: 10px;
+    color: #E86850;
+    width: 60vw;
+    min-height: 35vh;
+    align-items: center;
+    justify-content: center;
+}
+
 .settingsControls {
     display: flex;
     width: 100vw;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 10px;
     background: #63ADFF;
     background-size: cover;
     background-repeat: no-repeat;
@@ -87,28 +100,96 @@
 }
 
 .settingsControls button {
-    padding: 10px;
+    position: relative;
+    padding: 12px 32px;
     font-size: 1em;
-    border-radius: 10px;
-    color: #587498;
-}
-
-.settingsControls button:hover {
-    background-color: #587498;
-    color: white;
-}
-
-.menuControls button {
-    padding: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 45px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    }
+    
+ .settingsControls button:hover {
+    transform: scale(1.05);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+ .settingsControls button:active {
+    transform: scale(0.9);
+    }
+    
+ .settingsControls button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #587498, #587498);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    border-radius: 50px;
+    }
+    
+ .settingsControls button:hover::before {
+     right: 0;
+    }
+    
+ .menuControls button {
+    position: relative;
+    padding: 12px 32px;
     font-size: 1em;
-    border-radius: 10px;
-    color: #587498;
-}
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 45px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    }
+    
+ .menuControls button:hover {
+    transform: scale(1.05);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+ .menuControls button:active {
+    transform: scale(0.9);
+    }
+    
+ .menuControls button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #587498, #587498);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    border-radius: 50px;
+    }
+    
+ .menuControls button:hover::before {
+    right: 0;
+    }
 
-.menuControls button:hover {
-    background-color: #587498;
-    color: white;
-}
+ #menu img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.5em;
+   }
 
 .pauseMenu {
     display: flex;
@@ -130,6 +211,19 @@
     justify-content: center;
     padding: 20px;
     gap: 20px;
+}
+
+.pauseTitle h1 {
+    display: flex;
+    align-self: center;
+    font-size: 5rem;
+    text-align: center;
+    margin: 10px;
+    color: #E86850;
+    width: 60vw;
+    min-height: 35vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .pauseMenu button {
@@ -193,14 +287,35 @@
     background-repeat: no-repeat;
 }
 
-#shopView > div {
+.shopTitle h1 {
     display: flex;
-    flex-direction: column;
+    align-self: center;
+    font-size: 5rem;
+    text-align: center;
+    margin: 10px;
+    color: #E86850;
+    width: 60vw;
+    min-height: 35vh;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    gap: 20px;
 }
+
+.shopItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .item {
+    flex: 0 0 calc(25% - 5px);
+    margin: 8px; 
+  }
+  
+  .shopExit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
 .item > p {
     font-size: 1em;
@@ -256,3 +371,117 @@
     width: 80px;  
     height: 80px;
 }
+
+/* Style of the music Slider */
+
+.musicSettings {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    padding: 0;
+    color: white;
+  }
+  
+  #toggle {
+    display: none;
+  }
+  
+  .slider {
+    display: block;
+    font-size: 10px;
+    position: relative;
+  }
+  
+  .slider::after {
+    content: 'ON';
+    width: 25px;
+    height: 25px;
+    background-color: #05ae3e;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color .25s, transform .25s ease-in;
+    font-size: 7px;
+  }
+  
+  #toggle:checked + .slider::after {
+    content: 'OFF';
+    background-color: #e03c3c;
+    transform: translateX(25px) rotate(360deg);
+  }
+  
+  .label-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; 
+  }
+
+/* Difficulty levels css style */
+
+div input[type="radio"] {
+    display: none;
+  }
+  
+div label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+div label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease-in-out;
+  }
+  
+div input[type="radio"]:checked + label:before {
+    background-color: green;
+    top: 0;
+  }
+  
+div input[type="radio"]:checked + label {
+    background-color: royalblue;
+    color: #fff;
+    border-color: rgb(129, 235, 129);
+    animation: radio-translate 0.5s ease-in-out;
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
