@@ -13,7 +13,9 @@ let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
 let speed = 1.5;
 let duckCount = 0;
-console.log("speed= " + speed);
+
+let healthIncrement = 0;
+let health = 1 + healthIncrement;
 
 
 export function updateDuckCount(){
@@ -37,8 +39,6 @@ function handleDuckHit() {
         gameModule.addHitToHud();
 
         animateDuckFalling();
-        duckCount++;
-        console.log("duckCount= " + duckCount);
     }
 
 function animateDuckFalling() {
@@ -64,7 +64,10 @@ duck.addEventListener('click', handleDuckHit);
 
 
 
+
 export function moveDuck() {
+
+    health = 1 + healthIncrement;
     if (duckHit) {
         return;
     }

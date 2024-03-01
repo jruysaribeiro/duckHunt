@@ -178,7 +178,9 @@ function updateBulletTimeMeter(){
     if (bulletTimeCounter >= maxBulletTimeBars){
         isBulletTimeReady = true;
         console.log("Bullet time is ready!");
-        //document.getElementById("bullet-time-container").style.backgroundColor = "green";
+        showMessage("Bullet time is ready! 🔫")
+        document.getElementById("bullet-time-container").style.backgroundColor = "green";
+
     }
 
 };
@@ -200,4 +202,9 @@ document.addEventListener("keydown", (event) => {
 
 
 
+// export function addHit() {
+//     hitCounter++;
+//     bulletTimeCounter++;
+//     updateBulletTimeMeter();
+// }
 
