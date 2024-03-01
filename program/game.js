@@ -198,6 +198,7 @@ function resetBulletTimeMeter(){
 document.addEventListener("keydown", (event) => {
     if (event.key === "b" && isBulletTimeReady){
         console.log("Bullet time activated! 🔫")
+        resetBulletTimeMeter();
         // we slow down time here
         // after 10 secs or something:
         // resetBulletTimeMeter();  
