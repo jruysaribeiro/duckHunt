@@ -158,30 +158,33 @@ export function showMessage(message) {
     }, 2000);
 };
 
-//Commit do André
-// Bullet time logic
 
+// Bullet time logic
 
 function updateBulletTimeMeter(){
 
-    const bars = document.querySelectorAll(".bullet-time-bar");
+    let bulletTimeMeter = document.getElementById("bullet-time-meter");
+    bulletTimeMeter.value = bulletTimeCounter;
+    console.log("counter value:" + bulletTimeCounter.valueOf());
+    // const bars = document.querySelectorAll(".bullet-time-bar");
 
-    // Fill the bars based on bulletTimeCounter
-    bars.forEach((bar, index) => {
-        if (index < bulletTimeCounter){
-            bar.style.backgroundColor = "black";
-        } else {
-            bar.style.backgroundColor = "white";
-        }
-    });
+    // // Fill the bars based on bulletTimeCounter
+    // bars.forEach((bar, index) => {
+    //     if (index < bulletTimeCounter){
+    //         bar.style.backgroundColor = "black";
+    //     } else {
+    //         bar.style.backgroundColor = "white";
+    //     }
+    // });
 
     // Check if bullet time is ready to be activated
     if (bulletTimeCounter >= maxBulletTimeStacks){
         isBulletTimeReady = true;
-        console.log("Bullet time is ready!");
+        console.log("Bullet time is ready!"); // we can delete this after the feature is working
         showMessage("Bullet time is ready! 🔫")
-        document.getElementById("bullet-time-container").style.backgroundColor = "green";
-
+        // document.getElementById("bullet-time-container").style.backgroundColor = "green";
+    } else{
+        isBulletTimeReady = false; // I dont think we need this, as the variable is intialized as false
     }
 
 };
