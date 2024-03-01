@@ -13,7 +13,7 @@ export const duckCounter = document.getElementById("hit");
 let hitCounter = 0;
 
 //Weapon Variables
-export const weapon = weaponModule.pistol;
+export const weapon = weaponModule.rocketLauncher;
 console.log(weapon);
 export const ammo = document.getElementById('ammo');
 export const gunshot = new Audio(weapon.sound);
