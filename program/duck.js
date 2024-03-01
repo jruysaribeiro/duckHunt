@@ -12,13 +12,17 @@ let positionY = 0;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
 let speed = 2;
-let healthIncrement = 0;
-let health = 1 + healthIncrement;
+let initialHealth = 0;
+let health = initialHealth;
 let duckCount = 0;
 console.log("speed= " + speed);
 
 export function updateHealth(int) {
-    health =  health + int;
+    initialHealth =  initialHealth + int;
+}
+
+export function updateDuckCount(){
+    duckCount = 0;
 }
 
 function handleDuckHit() {
@@ -72,12 +76,7 @@ duck.addEventListener('click', handleDuckHit);
 
 
 
-function moveDuck() {
-    if(duckCount >= 5){
-        healthIncrement++;
-        duckCount = 0;
-    }
-    health = 1 + healthIncrement;
+export function moveDuck() {
     if (duckHit) {
         return;
     }
@@ -129,6 +128,3 @@ export function updateDuckSpeed(round) {
     console.log("speed= " + speed);
 }
 
-setTimeout(() => {
-    requestAnimationFrame(moveDuck); 
-}, 5000); 
