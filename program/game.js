@@ -13,7 +13,7 @@ export const duckCounter = document.getElementById("hit");
 let hitCounter = 0;
 
 //Weapon Variables
-export const weapon = weaponModule.pistol;
+export const weapon = weaponModule.machinegun;
 console.log(weapon);
 export const ammo = document.getElementById('ammo');
 export const gunshot = new Audio(weapon.sound);
@@ -89,7 +89,11 @@ duck.addEventListener('click', function() {
     if(numOfBullets() <= 0) {   
         return;
     };
-    duckHealth -= weapon.damage;
+    if (weapon.name === "machinegun") {
+        duckHealth -= 3;
+    } else {
+        duckHealth--;
+    }
     console.log("Duck Health: " + duckHealth);
     console.log("Weapon Damage = " + weapon.damage);
     console.log("updatedDuckHealth = " + duckHealth);
