@@ -261,15 +261,11 @@ function activateBulletTime(){
     console.log("Bullet time activated! ⏳")
     showMessage("Bullet time activated! ⏳")
     bulletTimeActive = true;
-    document.getElementById("sky").style.className = "matrix";
-    document.getElementById("sky").style.classList.remove = "sky";
     // Set timeout to deactivate
     setTimeout(() => {
         bulletTimeActive = false;
         console.log("Bullet time ended.");
         showMessage("Bullet time ended.");
-        document.getElementById("sky").style.classList.remove = "matrix";
-        document.getElementById("sky").style.className = "sky";
     }, bulletTimeDuration);
 
     resetBulletTimeMeter();
