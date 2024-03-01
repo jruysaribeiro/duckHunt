@@ -32,9 +32,9 @@ gameScreen.addEventListener('click', () => {
         fire(weapon);
     }
     fire(weapon);
-  });
+});
 
-  export let updateAmmo = function() {
+export let updateAmmo = function() {
     let bullets = ammo.getElementsByClassName('bullet');
     if (bullets.length > 0) {
         bullets[0].remove();
