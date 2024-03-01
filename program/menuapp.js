@@ -20,7 +20,7 @@ settingControls.addEventListener('click', () => {
 const pauseControl = document.getElementById('game');
 
         // pause the game
- document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
         if(document.getElementById('pause').style.display === 'block') {
             if(event.key === 'q') {
                 console.log('resumed');
