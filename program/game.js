@@ -28,6 +28,10 @@ export let duckHealth = 0 + round;
 
 //Weapon Functions
 gameScreen.addEventListener('click', () => {
+    if(numOfBullets() <= 0) {
+        showMessage("Out of ammo! Press R to reload!");
+        return;
+    }
     if(weapon === weaponModule.machinegun) {
         fire(weapon);
         fire(weapon);
@@ -82,24 +86,29 @@ export const numOfBullets = function() {
 //Duck Functions
 
 duck.addEventListener('click', function() {
+    if(numOfBullets() <= 0) {   
+        return;
+    };
     duckHealth -= weapon.damage;
     console.log("Duck Health: " + duckHealth);
     console.log("Weapon Damage = " + weapon.damage);
-    addHit();
-    addHitToHud();
-    playerModule.player.score += round * 100;
-    scoreHud.textContent = playerModule.player.score;
     console.log("updatedDuckHealth = " + duckHealth);
     if(duckHealth <= 0) {
+        playerModule.player.score += round * 100;
+        scoreHud.textContent = playerModule.player.score;
+        addHit();
+        addHitToHud();
         duckModule.animateDuckFalling();
         duckHealth = 0 + round;
         return;
+    } else {
+        duckModule.handleDuckHit();
     }
-    duckModule.handleDuckHit();
+    
 });
 
 
-let updateDuckHealth = function(round) {
+export let updateDuckHealth = function(round) {
     duckHealth = 0 + round;
 }
 
@@ -116,6 +125,7 @@ export const startGame = function() {
         requestAnimationFrame(duckModule.moveDuck); 
     }, 5000); 
 };
+
 let roundHandler = function() {
     if (round === 1){
         setAmmo(weapon);
@@ -123,11 +133,16 @@ let roundHandler = function() {
     showMessage("Round " + round + "!" + " Get ready!");
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
+    let duckCounters = document.querySelectorAll('.hudDuck');
+    duckCounters.forEach(function(duckCounter) {
+        duckCounter.remove();
+    });
     updateLocalScore();
     duckModule.updateDuckCount();
     updateDuckHealth(round);
     console.log("Duck Health: " + duckHealth);
 }
+
 export function addHitToHud() {
     let newDuckToCounter = document.createElement('img');
     newDuckToCounter.src = "/resources/sprites/scoreImages/hit/duckwhite.png";
@@ -136,7 +151,6 @@ export function addHitToHud() {
     if (hitCounter >= 5) {
         updateRound();
         hitCounter = 0;
-        duckCounter.innerHTML = "";
         roundHandler();
     }
 };
