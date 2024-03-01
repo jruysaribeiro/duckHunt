@@ -14,7 +14,6 @@ let direction = Math.random() < 0.5 ? -1 : 1;
 let speed = 2;
 let healthIncrement = 0;
 let health = 1 + healthIncrement;
-let duckCount = 0;
 console.log("speed= " + speed);
 
 export function updateHealth(int) {
@@ -26,11 +25,6 @@ function handleDuckHit() {
         gameModule.showMessage("Out of ammo! Press R to reload!");
         return;
     }
-    console.log('Duck was hit');
-    console.log("health = " + health);
-    health = health - gameModule.weapon.damage;
-    console.log("damage = " + gameModule.weapon.damage);
-    console.log("health = " + health);
     if(health <= 0) {
         gameModule.addHit();
         playerModule.player.score += 100 + gameModule.round * 100;
@@ -44,8 +38,6 @@ function handleDuckHit() {
         gameModule.addHitToHud();
 
         animateDuckFalling();
-        duckCount++;
-        console.log("duckCount= " + duckCount);
     }
 }
 
@@ -73,10 +65,6 @@ duck.addEventListener('click', handleDuckHit);
 
 
 function moveDuck() {
-    if(duckCount >= 5){
-        healthIncrement++;
-        duckCount = 0;
-    }
     health = 1 + healthIncrement;
     if (duckHit) {
         return;
