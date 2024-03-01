@@ -67,6 +67,8 @@ duck.addEventListener('click', handleDuckHit);
 
 export function moveDuck() {
 
+    let currentSpeed = gameModule.getBulletTimeAcive() ? speed / 2 : speed;
+
     health = 1 + healthIncrement;
     if (duckHit) {
         return;
@@ -86,8 +88,8 @@ export function moveDuck() {
     let deltaTime = currentTime - lastFrameTime;
     let buffer = 100; 
     if (deltaTime >= 10) { 
-        positionY += speed; 
-        positionX += speed * direction; 
+        positionY += currentSpeed; 
+        positionX += currentSpeed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
         if (positionY >= window.innerHeight + buffer || positionX < -buffer || positionX >= window.innerWidth + buffer) { 
