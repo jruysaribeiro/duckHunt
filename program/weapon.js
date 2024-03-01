@@ -20,7 +20,7 @@ export const bow = {
     name: "bow",
     damage: 5,
     fireRate: 1,
-    reloadTime: 3,
+    reloadTime: 5,
     magazineSize: 1,
     numOfBullets: 1,
     price: 2000,
