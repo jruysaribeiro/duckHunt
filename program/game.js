@@ -102,7 +102,7 @@ let roundHandler = function() {
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
     updateLocalScore();
-    duckModule.updateHealth(round);
+    duckModule.updateHealth(1);
     duckModule.updateDuckCount();
 }
 export function addHitToHud() {
@@ -179,7 +179,7 @@ function updateBulletTimeMeter(){
     if (bulletTimeCounter >= maxBulletTimeBars){
         isBulletTimeReady = true;
         console.log("Bullet time is ready!");
-        document.getElementById("bullet-time-container").style.backgroundColor = "green";
+        //document.getElementById("bullet-time-container").style.backgroundColor = "green";
     }
 
 };
