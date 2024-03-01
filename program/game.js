@@ -11,6 +11,9 @@ export let scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
+let bulletTimeCounter = 0;
+const maxBulletTimeStacks = 5;
+let isBulletTimeReady = false;
 
 //Weapon Variables
 export const weapon = weaponModule.pistol;
@@ -157,9 +160,7 @@ export function showMessage(message) {
 
 //Commit do André
 // Bullet time logic
-let bulletTimeCounter = 5;
-const maxBulletTimeBars = 5;
-let isBulletTimeReady = false;
+
 
 function updateBulletTimeMeter(){
 
@@ -175,7 +176,7 @@ function updateBulletTimeMeter(){
     });
 
     // Check if bullet time is ready to be activated
-    if (bulletTimeCounter >= maxBulletTimeBars){
+    if (bulletTimeCounter >= maxBulletTimeStacks){
         isBulletTimeReady = true;
         console.log("Bullet time is ready!");
         showMessage("Bullet time is ready! 🔫")
@@ -199,12 +200,3 @@ document.addEventListener("keydown", (event) => {
         // resetBulletTimeMeter();  
     }
 });
-
-
-
-// export function addHit() {
-//     hitCounter++;
-//     bulletTimeCounter++;
-//     updateBulletTimeMeter();
-// }
-
