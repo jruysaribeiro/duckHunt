@@ -19,7 +19,7 @@ export let ammo = document.getElementById('ammo');
 export let gunshot = new Audio(weapon.sound);
 
 //Duck Variables
-let duckHealth = duckModule.health;
+
 
 //Player Variables
 
@@ -102,7 +102,6 @@ let roundHandler = function() {
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
     updateLocalScore();
-    duckModule.updateHealth(1);
     duckModule.updateDuckCount();
 }
 export function addHitToHud() {

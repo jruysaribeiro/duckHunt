@@ -11,33 +11,10 @@ let positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0
 let positionY = 0;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
-let speed = 2;
-let initialHealth = 0;
-//let health = initialHealth;
+let speed = 1.5;
 let duckCount = 0;
 console.log("speed= " + speed);
-let round = gameModule.round;
 
-class Duck {
-    constructor(round) {
-        this.health = round;
-    }
-
-    hit() {
-        this.health -= gameModule.weapon.damage;
-        if(this.health <= 0) {
-            // Handle duck death
-            // ...
-            this.health = gameModule.round; // Reset health
-        }
-    }
-}
-
-let duckInstance = new Duck(gameModule.round);
-
-export function updateHealth(int) {
-    initialHealth =  initialHealth + int;
-}
 
 export function updateDuckCount(){
     duckCount = 0;
@@ -48,12 +25,6 @@ function handleDuckHit() {
         gameModule.showMessage("Out of ammo! Press R to reload!");
         return;
     }
-    console.log('Duck was hit');
-    console.log("health = " + initialHealth);
-    initialHealth = initialHealth - gameModule.weapon.damage;
-    console.log("damage = " + gameModule.weapon.damage);
-    console.log("health = " + initialHealth);
-    if(initialHealth <= 0) {
         gameModule.addHit();
         playerModule.player.score += 100 + gameModule.round * 100;
         scoreHud.textContent = playerModule.player.score;
@@ -68,9 +39,7 @@ function handleDuckHit() {
         animateDuckFalling();
         duckCount++;
         console.log("duckCount= " + duckCount);
-        initialHealth = gameModule.round;
     }
-}
 
 function animateDuckFalling() {
     let fallInterval = setInterval(function() {
@@ -91,7 +60,7 @@ function animateDuckFalling() {
     }, 20);
 }
 
-duck.addEventListener('click', duckHit);
+duck.addEventListener('click', handleDuckHit);
 
 
 
@@ -143,7 +112,7 @@ function duckSprite(direction)  {
 }
 
 export function updateDuckSpeed(round) {
-    speed = 2 + round * 0.5;
+    speed = speed + round * 0.5;
     console.log("speed= " + speed);
 }
 
