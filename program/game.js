@@ -9,8 +9,14 @@ export const gameScreen = document.getElementById('game');
 let score = playerModule.getScore();
 export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
-export const duckCounter = document.getElementById("hit");
-let hitCounter = 0;
+export let duckCounter = document.getElementById("hit");
+export let hitCounter = 0;
+let bulletTimeCounter = 0;
+const maxBulletTimeStacks = 5;
+let isBulletTimeReady = false;
+let bulletTimeActive = false;
+const bulletTimeDuration = 10000;
+
 
 //Weapon Variables
 export const weapon = weaponModule.rocketLauncher;
@@ -38,7 +44,8 @@ gameScreen.addEventListener('click', () => {
         fire(weapon);
     }
     fire(weapon);
-  });
+});
+
 
   export const updateAmmo = function() {
     let bullets = ammo.getElementsByClassName('bullet');
@@ -202,31 +209,25 @@ export function showMessage(message) {
     }, 2000);
 };
 
+
 //Bullet Time Functions
 let bulletTimeCounter = 5;
 const maxBulletTimeBars = 5;
 let isBulletTimeReady = false;
 
+
 function updateBulletTimeMeter(){
 
-    const bars = document.querySelectorAll(".bullet-time-bar");
-
-    // Fill the bars based on bulletTimeCounter
-    bars.forEach((bar, index) => {
-        if (index < bulletTimeCounter){
-            bar.style.backgroundColor = "black";
-        } else {
-            bar.style.backgroundColor = "white";
-        }
-    });
+    let bulletTimeMeter = document.getElementById("bullet-time-meter"); // can we declare this variable on global scope?
+    bulletTimeMeter.value = bulletTimeCounter;
+    console.log("counter value:" + bulletTimeCounter.valueOf());
 
     // Check if bullet time is ready to be activated
-    if (bulletTimeCounter >= maxBulletTimeBars){
+    if (bulletTimeCounter >= maxBulletTimeStacks){
         isBulletTimeReady = true;
         console.log("Bullet time is ready!");
-        showMessage("Bullet time is ready! 🔫")
-        document.getElementById("bullet-time-container").style.backgroundColor = "green";
-
+    } else{
+        isBulletTimeReady = false; // do we need this? The variable is initialized as false
     }
 
 };
@@ -239,9 +240,27 @@ function resetBulletTimeMeter(){
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "b" && isBulletTimeReady){
-        console.log("Bullet time activated! 🔫")
-        // we slow down time here
-        // after 10 secs or something:
-        // resetBulletTimeMeter();  
+        activateBulletTime();
     }
 });
+
+
+function activateBulletTime(){
+    console.log("Bullet time activated! ⏳")
+    showMessage("Bullet time activated! ⏳")
+    bulletTimeActive = true;
+
+    // Set timeout to deactivate
+    setTimeout(() => {
+        bulletTimeActive = false;
+        console.log("Bullet time ended.");
+        showMessage("Bullet time ended.");
+    }, bulletTimeDuration);
+
+    resetBulletTimeMeter();
+}
+
+export function getBulletTimeAcive() {
+    return bulletTimeActive;
+}
+

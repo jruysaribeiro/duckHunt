@@ -3,7 +3,7 @@ import * as gameModule from './game.js';
 const startControl = document.getElementById('start');
 
 startControl.addEventListener('click', () => {
-    console.log('start clicked');       
+    console.log('start clicked');
     document.getElementById('menu').style.display = 'none';
     document.getElementById('game').style.display = 'block';
     gameModule.startGame();
@@ -20,7 +20,7 @@ settingControls.addEventListener('click', () => {
 const pauseControl = document.getElementById('game');
 
         // pause the game
- document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
         if(document.getElementById('pause').style.display === 'block') {
             if(event.key === 'q') {
                 console.log('resumed');

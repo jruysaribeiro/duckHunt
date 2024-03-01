@@ -60,6 +60,9 @@ export function animateDuckFalling() {
 
 
 
+
+let currentSpeed = gameModule.getBulletTimeAcive() ? speed / 2 : speed;
+
 export function moveDuck() {
     if (duckHit) {
         return;
