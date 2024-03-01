@@ -6,8 +6,8 @@ import * as duckModule from './duck.js';
 //Game Variables
 export let round = 1;
 export const gameScreen = document.getElementById('game');
-export let score = playerModule.getScore();
-export let scoreHud = document.getElementById('score');
+let score = playerModule.getScore();
+export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
@@ -17,21 +17,28 @@ let isBulletTimeReady = false;
 let bulletTimeActive = false;
 const bulletTimeDuration = 10000;
 
+
 //Weapon Variables
-export const weapon = weaponModule.pistol;
+export const weapon = weaponModule.rocketLauncher;
 console.log(weapon);
-export let ammo = document.getElementById('ammo');
+
+export let ammo = document.getElementById('bullet');
 export let gunshot = new Audio(weapon.sound);
 
 //Duck Variables
+let duck = document.getElementById('duck');
 
-
+export let duckHealth = 0 + round;
 //Player Variables
 
 
 
 //Weapon Functions
 gameScreen.addEventListener('click', () => {
+    if(numOfBullets() <= 0) {
+        showMessage("Out of ammo! Press R to reload!");
+        return;
+    }
     if(weapon === weaponModule.machinegun) {
         fire(weapon);
         fire(weapon);
@@ -39,14 +46,15 @@ gameScreen.addEventListener('click', () => {
     fire(weapon);
 });
 
-export let updateAmmo = function() {
+
+  export const updateAmmo = function() {
     let bullets = ammo.getElementsByClassName('bullet');
     if (bullets.length > 0) {
         bullets[0].remove();
     }
 }
 
-export let setAmmo = function(weapon) {
+export const setAmmo = function(weapon) {
     for (let i = numOfBullets(); i < weapon.magazineSize; i++) {
         const bullet = document.createElement('img');
         bullet.src = weapon.bulletImage;
@@ -62,29 +70,59 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-export let reload = function(weapon) {
+export const reload = function(weapon) {
     setAmmo(weapon);
     showMessage("Reloaded!");
 }
 
-export let fire = function(weapon) {
+export const fire = function(weapon) {
     if(numOfBullets() <= 0) {
         return;
     }
     gunshot.pause();
     gunshot.currentTime = 0;
     gunshot.play();
-    updateAmmo(weapon);
+    updateAmmo();
     console.log("Fire");
 }
 
-export let numOfBullets = function() {
+export const numOfBullets = function() {
     return document.querySelectorAll('#ammo img').length;
 };
 
 
 //Duck Functions
 
+duck.addEventListener('click', function() {
+    if(numOfBullets() <= 0) {   
+        return;
+    };
+    if (weapon.name === "machinegun") {
+        duckHealth -= 3;
+    } else {
+        duckHealth--;
+    }
+    console.log("Duck Health: " + duckHealth);
+    console.log("Weapon Damage = " + weapon.damage);
+    console.log("updatedDuckHealth = " + duckHealth);
+    if(duckHealth <= 0) {
+        playerModule.player.score += round * 100;
+        scoreHud.textContent = playerModule.player.score;
+        addHit();
+        addHitToHud();
+        duckModule.animateDuckFalling();
+        duckHealth = 0 + round;
+        return;
+    } else {
+        duckModule.handleDuckHit();
+    }
+    
+});
+
+
+export let updateDuckHealth = function(round) {
+    duckHealth = 0 + round;
+}
 
 
 //Player Functions
@@ -93,12 +131,13 @@ export let numOfBullets = function() {
 function updateLocalScore() {
     playerModule.updateLocalScore();
 }
-export let startGame = function() {
+export const startGame = function() {
     roundHandler();
     setTimeout(() => {
         requestAnimationFrame(duckModule.moveDuck); 
     }, 5000); 
 };
+
 let roundHandler = function() {
     if (round === 1){
         setAmmo(weapon);
@@ -106,21 +145,31 @@ let roundHandler = function() {
     showMessage("Round " + round + "!" + " Get ready!");
     duckModule.updateDuckSpeed(round);
     hitCounter = 0;
+    let duckCounters = document.querySelectorAll('.hudDuck');
+    duckCounters.forEach(function(duckCounter) {
+        duckCounter.remove();
+    });
     updateLocalScore();
     duckModule.updateDuckCount();
+    updateDuckHealth(round);
+    console.log("Duck Health: " + duckHealth);
 }
+
 export function addHitToHud() {
     let newDuckToCounter = document.createElement('img');
     newDuckToCounter.src = "/resources/sprites/scoreImages/hit/duckwhite.png";
     newDuckToCounter.className = "hudDuck";
     duckCounter.appendChild(newDuckToCounter);
-    if (hitCounter === 5) {
-        round++;
+    if (hitCounter >= 5) {
+        updateRound();
         hitCounter = 0;
-        duckCounter.innerHTML = "";
         roundHandler();
     }
 };
+
+function updateRound() {
+    round++;
+}
 
 export function addHit() {
     hitCounter++;
@@ -161,7 +210,11 @@ export function showMessage(message) {
 };
 
 
-// Bullet time logic
+//Bullet Time Functions
+let bulletTimeCounter = 5;
+const maxBulletTimeBars = 5;
+let isBulletTimeReady = false;
+
 
 function updateBulletTimeMeter(){
 
@@ -191,6 +244,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+
 function activateBulletTime(){
     console.log("Bullet time activated! ⏳")
     showMessage("Bullet time activated! ⏳")
@@ -209,3 +263,4 @@ function activateBulletTime(){
 export function getBulletTimeAcive() {
     return bulletTimeActive;
 }
+
