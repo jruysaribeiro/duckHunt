@@ -208,6 +208,11 @@ document.addEventListener("keydown", (event) => {
 
 
 
+export function addHit() {
+    hitCounter++;
+    bulletTimeCounter++;
+    updateBulletTimeMeter();
+}
 
 
 
@@ -216,3 +221,47 @@ document.addEventListener("keydown", (event) => {
 
 
 
+
+
+
+// Bullet time logic
+let bulletTimeCounter = 5;
+const maxBulletTimeBars = 5;
+let isBulletTimeReady = false;
+
+function updateBulletTimeMeter(){
+
+    const bars = document.querySelectorAll(".bullet-time-bar");
+
+    // Fill the bars based on bulletTimeCounter
+    bars.forEach((bar, index) => {
+        if (index < bulletTimeCounter){
+            bar.style.backgroundColor = "black";
+        } else {
+            bar.style.backgroundColor = "white";
+        }
+    });
+
+    // Check if bullet time is ready to be activated
+    if (bulletTimeCounter >= maxBulletTimeBars){
+        isBulletTimeReady = true;
+        console.log("Bullet time is ready!");
+        document.getElementById("bullet-time-container")[0].style.backgroundColor = "green";
+    }
+
+}
+
+function resetBulletTimeMeter(){
+    bulletTimeCounter = 0;
+    isBulletTimeReady = false;
+    updateBulletTimeMeter();
+}
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "b" && isBulletTimeReady){
+        console.log("Bullet time activated! 🔫")
+        // we slow down time here
+        // after 10 secs or something:
+        // resetBulletTimeMeter();  
+    }
+});
