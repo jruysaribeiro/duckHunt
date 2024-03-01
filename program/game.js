@@ -15,8 +15,9 @@ let hitCounter = 0;
 //Weapon Variables
 export const weapon = weaponModule.rocketLauncher;
 console.log(weapon);
-export const ammo = document.getElementById('ammo');
-export const gunshot = new Audio(weapon.sound);
+
+export let ammo = document.getElementById('bullet');
+export let gunshot = new Audio(weapon.sound);
 
 //Duck Variables
 let duck = document.getElementById('duck');
