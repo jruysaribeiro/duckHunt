@@ -16,6 +16,19 @@ export const pistol = {
     cursor: "/resources/sprites/cursors/pistolCursor.png"
 }
 
+export const bow = {
+    name: "bow",
+    damage: 5,
+    fireRate: 1,
+    reloadTime: 3,
+    magazineSize: 1,
+    numOfBullets: 1,
+    price: 2000,
+    bulletImage: "/resources/sprites/bullets/arrow.png",
+    sound: "/resources/sounds/bow.wav",
+    cursor: "/resources/sprites/cursors/bowCursor.png"
+}
+
 export const shotgun = {
     name: "shotgun",
     damage: 2,
