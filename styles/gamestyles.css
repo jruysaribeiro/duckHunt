@@ -57,6 +57,7 @@ body {
 .hit {
     border: 5px solid black;
     grid-column: 2/3;
+    min-height: 96px;
 }
 
 .score {
