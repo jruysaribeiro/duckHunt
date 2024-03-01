@@ -67,7 +67,6 @@
                     
                     <div class="bullets" id="ammo">
                         <p>Bullets</p>
-                        <p>R to reload</p>
                         <div id="bullet"></div>
                         </div>
                     <div class="hit-bullet-time-container">
@@ -102,31 +101,31 @@
                 </div>
                 <div class="shopControls">
                     <div class="shopItems">
-                        <div class="item">
+                        <div class="item" id="bow">
                             <img src="/resources/sprites/weapons/bow.png" alt="">
                             <p>Bow</p>
                             <p>Price: 2000</p>
                             <button>Buy</button>
                         </div>
-                        <div class="item">
+                        <div class="item" id="shotgun">
                             <img src="/resources/sprites/weapons/shotgun3.png" alt="">
                             <p>Shotgun</p>
                             <p>Price: 100</p>
                             <button>Buy</button>
                         </div>
-                        <div class="item">
+                        <div class="item" id="machinegun">
                             <img src="/resources/sprites/weapons/ak.png" alt="">
                             <p>Machine Gun</p>
                             <p>Price: 200</p>
                             <button>Buy</button>
                         </div>
-                        <div class="item">
+                        <div class="item" id="sniper">
                             <img src="/resources/sprites/weapons/sniper.png" alt="">
                             <p>Sniper</p>
                             <p>Price: 300</p>
                             <button>Buy</button>
                         </div>
-                        <div class="item">
+                        <div class="item" id="rocketlauncher">
                             <img src="/resources/sprites/weapons/bazooka.png" alt="">
                             <p>Rocket Launcher</p>
                             <p>Price: 500</p>
@@ -136,51 +135,7 @@
                     <div class="shopExit">
                         <button id="shopExit"><img src="/resources/sprites/menus/back.png" alt="Back"> Back</button>
                     </div>
-            <div class="shop" id="shopView" style="display: none">
-                <div class="shopControls">
-                    <div class="shopItems">
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 1</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 2</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 3</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 4</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 5</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                        <div class="item">
-                            <img src="" alt="">
-                            <p>Item 6</p>
-                            <p>Price: 100</p>
-                            <button>Buy</button>
-                        </div>
-                    </div>
-                    <div class="shopExit">
-                        <button id="shopExit">Exit</button>
-                    </div>
-                </div>
-            </div>
+            
         
         <script type="module" src="/program/game.js" async defer></script>
         <script type="module" src="/program/menuapp.js" async defer></script>

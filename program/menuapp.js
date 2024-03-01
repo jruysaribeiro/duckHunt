@@ -1,4 +1,5 @@
 import * as gameModule from './game.js';
+import * as weaponModule from './weapon.js';
 
 const startControl = document.getElementById('start');
 
@@ -78,5 +79,44 @@ shopExit.addEventListener('click', () => {
     document.getElementById('shopView').style.display = 'none';
     document.getElementById('pause').style.display = 'block';
 });
+
+//Shop buttons
+const buyBow = document.getElementById('bow');
+const buyShotgun = document.getElementById('shotgun');
+const buyMachinegun = document.getElementById('machinegun');
+const buySniper = document.getElementById('sniper');
+const buyRocketLauncher = document.getElementById('rocketlauncher');
+
+buyBow.addEventListener('click', () => {
+    console.log('bow clicked');
+    gameModule.changeWeapon(weaponModule.bow);
+});
+
+buyShotgun.addEventListener('click', () => {
+    console.log('shotgun clicked');
+    gameModule.changeWeapon(weaponModule.shotgun);
+});
+
+buyMachinegun.addEventListener('click', () => {
+    console.log('machinegun clicked');
+    gameModule.changeWeapon(weaponModule.machinegun);
+});
+
+buySniper.addEventListener('click', () => {
+    console.log('sniper clicked');
+    gameModule.changeWeapon(weaponModule.sniper);
+});
+
+buyRocketLauncher.addEventListener('click', () => {
+    console.log('rocketlauncher clicked');
+    gameModule.changeWeapon(weaponModule.rocketLauncher);
+});
+
+
+
+
+
+
+
 
 

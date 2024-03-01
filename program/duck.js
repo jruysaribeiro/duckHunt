@@ -10,7 +10,7 @@ let positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0
 let positionY = 200;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
-let speed = 1.5;
+
 let duckCount = 0;
 let bounceCount = 0;
 
@@ -61,7 +61,7 @@ export function animateDuckFalling() {
 
 
 
-let currentSpeed = gameModule.getBulletTimeAcive() ? speed / 2 : speed;
+
 
 export function moveDuck() {
     if (duckHit) {
@@ -80,9 +80,10 @@ export function moveDuck() {
 
     let currentTime = Date.now();
     let deltaTime = currentTime - lastFrameTime;
-    if (deltaTime >= 10) { 
-        positionY += speed * 0.7; 
-        positionX += speed * direction; 
+    if (deltaTime >= 10) {
+        let currentSpeed = gameModule.bulletTimeActive ? gameModule.speed / 5 : gameModule.speed;
+        positionY += currentSpeed * 0.7; 
+        positionX += currentSpeed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
         if (positionY >= window.innerHeight || positionX < 0 || positionX >= window.innerWidth) { 
@@ -117,8 +118,7 @@ function duckSprite(direction)  {
     }
 }
 
-export function updateDuckSpeed(round) {
-    speed = speed + round * 0.5;
-    console.log("speed= " + speed);
-}
+
+
+
 

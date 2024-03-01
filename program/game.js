@@ -11,15 +11,15 @@ export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
-let bulletTimeCounter = 0;
+let bulletTimeCounter = 5;
 const maxBulletTimeStacks = 5;
 let isBulletTimeReady = false;
-let bulletTimeActive = false;
+export let bulletTimeActive = false;
 const bulletTimeDuration = 10000;
 
 
 //Weapon Variables
-export const weapon = weaponModule.rocketLauncher;
+export let weapon = weaponModule.pistol;
 console.log(weapon);
 
 export let ammo = document.getElementById('bullet');
@@ -27,13 +27,20 @@ export let gunshot = new Audio(weapon.sound);
 
 //Duck Variables
 let duck = document.getElementById('duck');
-
+export let speed = 2;
 export let duckHealth = 0 + round;
 //Player Variables
 
 
 
 //Weapon Functions
+export function changeWeapon(newWeapon) {
+    weapon = newWeapon;
+    setAmmo(weapon);
+    console.log("Weapon changed to " + weapon.name);
+    showMessage("Weapon changed to " + weapon.name);
+}
+
 gameScreen.addEventListener('click', () => {
     if(numOfBullets() <= 0) {
         showMessage("Out of ammo! Press R to reload!");
@@ -119,6 +126,11 @@ duck.addEventListener('click', function() {
     
 });
 
+export function updateDuckSpeed(round) {
+    speed = 2 + round * 0.5;
+    console.log("speed= " + speed);
+}
+
 
 export let updateDuckHealth = function(round) {
     duckHealth = 0 + round;
@@ -139,11 +151,12 @@ export const startGame = function() {
 };
 
 let roundHandler = function() {
+    
     if (round === 1){
         setAmmo(weapon);
     }
     showMessage("Round " + round + "!" + " Get ready!");
-    duckModule.updateDuckSpeed(round);
+    updateDuckSpeed(round);
     hitCounter = 0;
     let duckCounters = document.querySelectorAll('.hudDuck');
     duckCounters.forEach(function(duckCounter) {
@@ -159,6 +172,8 @@ export function addHitToHud() {
     let newDuckToCounter = document.createElement('img');
     newDuckToCounter.src = "/resources/sprites/scoreImages/hit/duckwhite.png";
     newDuckToCounter.className = "hudDuck";
+    newDuckToCounter.style.width = "15px";
+    newDuckToCounter.style.height = "auto";
     duckCounter.appendChild(newDuckToCounter);
     if (hitCounter >= 5) {
         updateRound();
@@ -211,9 +226,6 @@ export function showMessage(message) {
 
 
 //Bullet Time Functions
-let bulletTimeCounter = 5;
-const maxBulletTimeBars = 5;
-let isBulletTimeReady = false;
 
 
 function updateBulletTimeMeter(){
@@ -225,7 +237,7 @@ function updateBulletTimeMeter(){
     // Check if bullet time is ready to be activated
     if (bulletTimeCounter >= maxBulletTimeStacks){
         isBulletTimeReady = true;
-        console.log("Bullet time is ready!");
+        showMessage("Bullet time is ready! 🔫 Press B to activate!");
     } else{
         isBulletTimeReady = false; // do we need this? The variable is initialized as false
     }
@@ -249,18 +261,21 @@ function activateBulletTime(){
     console.log("Bullet time activated! ⏳")
     showMessage("Bullet time activated! ⏳")
     bulletTimeActive = true;
-
+    document.getElementById("sky").style.className = "matrix";
+    document.getElementById("sky").style.classList.remove = "sky";
     // Set timeout to deactivate
     setTimeout(() => {
         bulletTimeActive = false;
         console.log("Bullet time ended.");
         showMessage("Bullet time ended.");
+        document.getElementById("sky").style.classList.remove = "matrix";
+        document.getElementById("sky").style.className = "sky";
     }, bulletTimeDuration);
 
     resetBulletTimeMeter();
 }
 
-export function getBulletTimeAcive() {
+export function getBulletTimeActive() {
     return bulletTimeActive;
 }
 
