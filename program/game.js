@@ -11,11 +11,11 @@ export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
-let bulletTimeCounter = 0;
-const maxBulletTimeStacks = 7;
+let bulletTimeCounter = 13;
+const maxBulletTimeStacks = 14;
 let isBulletTimeReady = false;
 export let bulletTimeActive = false;
-const bulletTimeDuration = 10000;
+const bulletTimeDuration = 13000;
 
 
 //Weapon Variables
@@ -36,11 +36,20 @@ export let duckHealth = 0 + round;
 //Weapon Functions
 export function changeWeapon(newWeapon) {
     weapon = newWeapon;
+    cleanWeapon();
     setAmmo(weapon);
     console.log("Weapon changed to " + weapon.name);
     showMessage("Weapon changed to " + weapon.name);
+    gunshot = new Audio(weapon.sound);
+    console.log(weapon);
     roundHandler();
-    
+}
+
+export function cleanWeapon() {
+    let bullets = document.querySelectorAll('#ammo .bullet');
+    bullets.forEach(function(bullet) {
+    bullet.remove();
+});
 }
 
 gameScreen.addEventListener('click', () => {
@@ -106,10 +115,12 @@ duck.addEventListener('click', function() {
     if(numOfBullets() <= 0) {   
         return;
     };
+    bulletTimeCounter++;
+    updateBulletTimeMeter();
     if (weapon.name === "machinegun") {
         duckHealth -= 3;
     } else {
-        duckHealth--;
+        duckHealth -= weapon.damage;
     }
     console.log("Duck Health: " + duckHealth);
     console.log("Weapon Damage = " + weapon.damage);
@@ -125,7 +136,6 @@ duck.addEventListener('click', function() {
     } else {
         duckModule.handleDuckHit();
     }
-    
 });
 
 export function updateDuckSpeed(round) {
@@ -172,9 +182,9 @@ let roundHandler = function() {
 
 export function addHitToHud() {
     let newDuckToCounter = document.createElement('img');
-    newDuckToCounter.src = "/resources/sprites/scoreImages/hit/duckwhite.png";
+    newDuckToCounter.src = "/resources/sprites/duck/hit.png";
     newDuckToCounter.className = "hudDuck";
-    newDuckToCounter.style.width = "15px";
+    newDuckToCounter.style.width = "20px";
     newDuckToCounter.style.height = "auto";
     duckCounter.appendChild(newDuckToCounter);
     if (hitCounter >= 5) {
@@ -190,8 +200,6 @@ function updateRound() {
 
 export function addHit() {
     hitCounter++;
-    bulletTimeCounter++;
-    updateBulletTimeMeter();
 }
 
 
@@ -214,6 +222,7 @@ export function showMessage(message) {
     messageDiv.style.padding = '20px';
     messageDiv.style.backgroundColor = 'white';
     messageDiv.style.border = '1px solid black';
+    messageDiv.style.borderRadius = '50px';
     messageDiv.style.textAlign = 'center';
     messageDiv.style.zIndex = '1000';
 
@@ -229,7 +238,7 @@ export function showMessage(message) {
 
 //Bullet Time Functions
 
-
+let matrixAudio = new Audio("/resources/sounds/matrix.wav");
 function updateBulletTimeMeter(){
 
     let bulletTimeMeter = document.getElementById("bullet-time-meter"); // can we declare this variable on global scope?
@@ -260,6 +269,7 @@ document.addEventListener("keydown", (event) => {
 
 
 function activateBulletTime(){
+    matrixAudio.play();
     console.log("Bullet time activated! ⏳")
     showMessage("Bullet time activated! ⏳")
     bulletTimeActive = true;

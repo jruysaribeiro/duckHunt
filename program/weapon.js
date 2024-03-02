@@ -23,7 +23,7 @@ export const bow = {
     reloadTime: 50,
     magazineSize: 1,
     numOfBullets: 1,
-    price: 2000,
+    price: 3000,
     bulletImage: "/resources/sprites/bullets/arrow.png",
     sound: "/resources/sounds/bow.wav",
     cursor: "/resources/sprites/cursors/bowCursor.png"
@@ -36,7 +36,7 @@ export const shotgun = {
     reloadTime: 200,
     magazineSize: 5,
     numOfBullets: 5,
-    price: 100,
+    price: 1500,
     bulletImage: "/resources/sprites/bullets/shotgunBullet.png",
     sound: "/resources/sounds/shotgunshot.wav",
     cursor: "/resources/sprites/cursors/shotgunCursor.png"
@@ -49,7 +49,7 @@ export const machinegun = {
     reloadTime: 300,
     magazineSize: 24,
     numOfBullets: 24,
-    price: 200,
+    price: 2000,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
     sound: "/resources/sounds/akshot.wav",
     cursor: "/resources/sprites/cursors/machinegunCursor.png"
@@ -62,7 +62,7 @@ export const sniper = {
     reloadTime: 500,
     magazineSize: 5,
     numOfBullets: 5,
-    price: 300,
+    price: 5000,
     bulletImage: "/resources/sprites/bullets/sniperBullet.png",
     sound: "/resources/sounds/snipershot.wav",
     cursor: "/resources/sprites/cursors/sniperCursor.png"
@@ -75,7 +75,7 @@ export const rocketLauncher = {
     reloadTime: 1000,
     magazineSize: 1,
     numOfBullets: 1,
-    price: 500,
+    price: 10000,
     bulletImage: "/resources/sprites/bullets/rocket.png",
     sound: "/resources/sounds/bazookashot.wav",
     cursor: "/resources/sprites/cursors/rocketCursor.png"

@@ -41,7 +41,10 @@
                     </div>
                     <div>
                         <p id="soundToggle">Sound</p>
-                        <input type="range" min="0" max="10">
+                        <label for="toggle" class="musicSettings">
+                            <input type="checkbox" id="toggle">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                     <div>
                         <span class="label-text">Music</span>
@@ -75,7 +78,7 @@
                         </div>
                         <div id="bullet-time-container">
                             <p id="bullet-time-title">Bullet Time</p>
-                            <progress id="bullet-time-meter" max="5" value="0"></progress>
+                            <progress id="bullet-time-meter" max="14" value="0"></progress>
                         </div>
                     </div>
                     
@@ -89,7 +92,7 @@
                 <div class="pauseTitle">
                     <h1>Game Paused</h1>
                 </div>
-                <div>
+                <div class="pauseButtons">
                     <button class="resume" id="resume"><img src="/resources/sprites/menus/continue.png" alt="Resume"> Resume</button>
                     <button class="shop" id="shop"><img src="/resources/sprites/menus/weapons.png" alt="Shop"> Shop</button>
                     <button class="exit" id="exit"><img src="/resources/sprites/menus/exit.png" alt="Exit"> Main Menu</button>
@@ -101,34 +104,34 @@
                 </div>
                 <div class="shopControls">
                     <div class="shopItems">
-                        <div class="item" id="bow">
-                            <img src="/resources/sprites/weapons/bow.png" alt="">
-                            <p>Bow</p>
-                            <p>Price: 2000</p>
-                            <button>Buy</button>
-                        </div>
                         <div class="item" id="shotgun">
                             <img src="/resources/sprites/weapons/shotgun3.png" alt="">
                             <p>Shotgun</p>
-                            <p>Price: 100</p>
+                            <p>Price: 1500 pts</p>
                             <button>Buy</button>
                         </div>
                         <div class="item" id="machinegun">
                             <img src="/resources/sprites/weapons/ak.png" alt="">
                             <p>Machine Gun</p>
-                            <p>Price: 200</p>
+                            <p>Price: 2000 pts</p>
+                            <button>Buy</button>
+                        </div>
+                        <div class="item" id="bow">
+                            <img src="/resources/sprites/weapons/bow.png" alt="">
+                            <p>Bow</p>
+                            <p>Price: 3000 pts</p>
                             <button>Buy</button>
                         </div>
                         <div class="item" id="sniper">
                             <img src="/resources/sprites/weapons/sniper.png" alt="">
                             <p>Sniper</p>
-                            <p>Price: 300</p>
+                            <p>Price: 5000 pts</p>
                             <button>Buy</button>
                         </div>
                         <div class="item" id="rocketlauncher">
                             <img src="/resources/sprites/weapons/bazooka.png" alt="">
                             <p>Rocket Launcher</p>
-                            <p>Price: 500</p>
+                            <p>Price: 10000 pts</p>
                             <button>Buy</button>
                         </div>
                     </div>
