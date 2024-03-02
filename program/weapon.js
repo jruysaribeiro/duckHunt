@@ -13,7 +13,7 @@ export const pistol = {
     price: 0,
     bulletImage: "/resources/sprites/bullets/pistolBullet.png",
     sound: "/resources/sounds/gunshot.wav",
-    cursor: "/resources/sprites/cursors/pistolCursor.png"
+    cursor: "/resources/sprites/crosshairs/pistolSight.png"
 }
 
 export const bow = {
@@ -26,7 +26,7 @@ export const bow = {
     price: 3000,
     bulletImage: "/resources/sprites/bullets/arrow.png",
     sound: "/resources/sounds/bow.wav",
-    cursor: "/resources/sprites/cursors/bowCursor.png"
+    cursor: "/resources/sprites/crosshairs/bowSight.png"
 }
 
 export const shotgun = {
@@ -39,7 +39,7 @@ export const shotgun = {
     price: 1500,
     bulletImage: "/resources/sprites/bullets/shotgunBullet.png",
     sound: "/resources/sounds/shotgunshot.wav",
-    cursor: "/resources/sprites/cursors/shotgunCursor.png"
+    cursor: "/resources/sprites/crosshairs/shotgunSight.png"
 }
 
 export const machinegun = {
@@ -52,7 +52,7 @@ export const machinegun = {
     price: 2000,
     bulletImage: "/resources/sprites/bullets/machinegunBullet.png",
     sound: "/resources/sounds/akshot.wav",
-    cursor: "/resources/sprites/cursors/machinegunCursor.png"
+    cursor: "/resources/sprites/crosshairs/akSight.png"
 }
 
 export const sniper = {
@@ -65,7 +65,7 @@ export const sniper = {
     price: 5000,
     bulletImage: "/resources/sprites/bullets/sniperBullet.png",
     sound: "/resources/sounds/snipershot.wav",
-    cursor: "/resources/sprites/cursors/sniperCursor.png"
+    cursor: "/resources/sprites/crosshairs/sniperSight.png"
 }
 
 export const rocketLauncher = {
@@ -78,7 +78,7 @@ export const rocketLauncher = {
     price: 10000,
     bulletImage: "/resources/sprites/bullets/rocket.png",
     sound: "/resources/sounds/bazookashot.wav",
-    cursor: "/resources/sprites/cursors/rocketCursor.png"
+    cursor: "/resources/sprites/crosshairs/rocketSight.png"
 }
 
 
