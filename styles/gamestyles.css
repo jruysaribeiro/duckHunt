@@ -10,7 +10,7 @@ body {
     height: 100vh;
     background-color: #f5f5f5;
     position: relative;
-    cursor: crosshair;
+    cursor: url(/resources/sprites/crosshairs/pistolSight.png) 12 12, auto;
 }
 
 #sky, #grass {
