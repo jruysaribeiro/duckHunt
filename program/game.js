@@ -17,7 +17,7 @@ const maxBulletTimeStacks = 14;
 let isBulletTimeReady = false;
 export let bulletTimeActive = false;
 const bulletTimeDuration = 13000;
-
+const gameScreenSight = document.getElementById('gameScreen');
 
 //Weapon Variables
 export let weapon = weaponModule.pistol;
@@ -39,6 +39,7 @@ export function changeWeapon(newWeapon) {
     weapon = newWeapon;
     cleanWeapon();
     setAmmo(weapon);
+    gameScreenSight.style.cursor = "url(" + weapon.cursor + "), auto";
     console.log("Weapon changed to " + weapon.name);
     showMessage("Weapon changed to " + weapon.name);
     gunshot = new Audio(weapon.sound);
@@ -158,6 +159,7 @@ function updateLocalScore() {
 }
 export const startGame = function() {
     roundHandler();
+    gameScreenSight.style.cursor = "url(" + weapon.cursor + "), auto";
     setTimeout(() => {
         requestAnimationFrame(duckModule.moveDuck); 
     }, 5000); 
