@@ -139,5 +139,21 @@ body {
     mix-blend-mode: normal;
 }
 
+#bullet-time-title {
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+#bullet-time-meter {
+    width: 60%;
+    height: 5px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
 
 

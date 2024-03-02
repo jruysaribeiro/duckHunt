@@ -3,12 +3,14 @@ import * as weaponModule from './weapon.js';
 import * as playerModule from './player.js';
 
 const startControl = document.getElementById('start');
+export const gameAudio = new Audio("/resources/sounds/intro.mp3");
 
 startControl.addEventListener('click', () => {
     console.log('start clicked');
     document.getElementById('menu').style.display = 'none';
     document.getElementById('game').style.display = 'block';
     gameModule.startGame();
+    gameAudio.play();
 });
 
 const settingControls = document.getElementById('settings');

@@ -12,7 +12,7 @@ let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
 
 let duckCount = 0;
-let bounceCount = 0;
+let bounceCount = -2;
 
 
 

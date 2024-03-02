@@ -31,7 +31,7 @@ export const bow = {
 
 export const shotgun = {
     name: "shotgun",
-    damage: 2,
+    damage: 3,
     fireRate: 1,
     reloadTime: 200,
     magazineSize: 5,
@@ -57,7 +57,7 @@ export const machinegun = {
 
 export const sniper = {
     name: "sniper",
-    damage: 3,
+    damage: 5,
     fireRate: 1,
     reloadTime: 500,
     magazineSize: 5,

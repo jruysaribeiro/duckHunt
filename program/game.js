@@ -2,6 +2,7 @@
 import * as playerModule from './player.js';
 import * as weaponModule from './weapon.js';
 import * as duckModule from './duck.js';
+import { gameAudio } from './menuapp.js';
 
 //Game Variables
 export let round = 1;
@@ -11,7 +12,7 @@ export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
-let bulletTimeCounter = 13;
+let bulletTimeCounter = 0;
 const maxBulletTimeStacks = 14;
 let isBulletTimeReady = false;
 export let bulletTimeActive = false;
@@ -163,7 +164,7 @@ export const startGame = function() {
 };
 
 let roundHandler = function() {
-    
+    gameAudio.play();
     if (round === 1){
         setAmmo(weapon);
     }
