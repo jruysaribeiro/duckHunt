@@ -82,7 +82,7 @@ export function moveDuck() {
     let deltaTime = currentTime - lastFrameTime;
     if (deltaTime >= 10) {
         let currentSpeed = gameModule.bulletTimeActive ? gameModule.speed / 5 : gameModule.speed;
-        positionY += currentSpeed * 0.7; 
+        positionY += currentSpeed * 0.5; 
         positionX += currentSpeed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
