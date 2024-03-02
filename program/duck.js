@@ -12,7 +12,7 @@ let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
 
 let duckCount = 0;
-let bounceCount = 0;
+let bounceCount = -2;
 
 
 
@@ -82,7 +82,7 @@ export function moveDuck() {
     let deltaTime = currentTime - lastFrameTime;
     if (deltaTime >= 10) {
         let currentSpeed = gameModule.bulletTimeActive ? gameModule.speed / 5 : gameModule.speed;
-        positionY += currentSpeed * 0.7; 
+        positionY += currentSpeed * 0.5; 
         positionX += currentSpeed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
