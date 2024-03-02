@@ -1,6 +1,5 @@
 import * as playerModule from './player.js';
 import * as gameModule from './game.js';
-import * as weaponModule from './weapon.js';
 
 
 
@@ -8,53 +7,37 @@ let scoreHud = document.getElementById('score');
 let duck = document.getElementById('duck');
 let duckHit = false;
 let positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5;
-let positionY = 0;
+let positionY = 200;
 let lastFrameTime = Date.now();
 let direction = Math.random() < 0.5 ? -1 : 1;
-let speed = 2;
-let initialHealth = 0;
-let health = initialHealth;
-let duckCount = 0;
-console.log("speed= " + speed);
 
-export function updateHealth(int) {
-    initialHealth =  initialHealth + int;
-}
+let duckCount = 0;
+let bounceCount = -2;
+
+
 
 export function updateDuckCount(){
     duckCount = 0;
 }
 
-function handleDuckHit() {
+export function handleDuckHit() {
     if(gameModule.numOfBullets() <= 0) {
         gameModule.showMessage("Out of ammo! Press R to reload!");
         return;
     }
-    console.log('Duck was hit');
-    console.log("health = " + health);
-    health = health - gameModule.weapon.damage;
-    console.log("damage = " + gameModule.weapon.damage);
-    console.log("health = " + health);
-    if(health <= 0) {
-        gameModule.addHit();
-        playerModule.player.score += 100 + gameModule.round * 100;
-        scoreHud.textContent = playerModule.player.score;
-        duckHit = true;
+        //gameModule.addHit();
+        
+        
 
         duck.className = 'duck';
 
-        duck.style.animationName = 'fall-down';
-
-        gameModule.addHitToHud();
-
-        animateDuckFalling();
-        duckCount++;
-        console.log("duckCount= " + duckCount);
+        //gameModule.addHitToHud();
     }
-}
 
-function animateDuckFalling() {
+export function animateDuckFalling() {
     let fallInterval = setInterval(function() {
+        duck.style.animationName = 'fall-down';
+        duckHit = true;
         let duckBottom = parseInt(window.getComputedStyle(duck).getPropertyValue('bottom'));
         if (duckBottom <= 0) {
             clearInterval(fallInterval);
@@ -72,7 +55,11 @@ function animateDuckFalling() {
     }, 20);
 }
 
-duck.addEventListener('click', handleDuckHit);
+
+
+
+
+
 
 
 
@@ -93,24 +80,32 @@ export function moveDuck() {
 
     let currentTime = Date.now();
     let deltaTime = currentTime - lastFrameTime;
-    let buffer = 100; 
-    if (deltaTime >= 10) { 
-        positionY += speed; 
-        positionX += speed * direction; 
+    if (deltaTime >= 10) {
+        let currentSpeed = gameModule.bulletTimeActive ? gameModule.speed / 5 : gameModule.speed;
+        positionY += currentSpeed * 0.5; 
+        positionX += currentSpeed * direction; 
         duck.style.bottom = positionY + 'px';
         duck.style.left = positionX + 'px';
-        if (positionY >= window.innerHeight + buffer || positionX < -buffer || positionX >= window.innerWidth + buffer) { 
-            positionY = 0; 
-            positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5; 
-            direction = positionX > window.innerWidth / 2 ? -1 : 1; 
-            duckHit = false;
-            duck.removeEventListener('click', handleDuckHit); 
-            duck.addEventListener('click', handleDuckHit); 
+        if (positionY >= window.innerHeight || positionX < 0 || positionX >= window.innerWidth) { 
+            if (bounceCount < gameModule.round) { // Check if the duck has bounced less than the round number
+                direction *= -1; // Reverse the direction
+                bounceCount++; // Increment the bounce count
+            } else {
+                setTimeout(() => { // Add a delay before resetting the duck's position
+                    positionY = 200; 
+                    positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5; 
+                    direction = positionX > window.innerWidth / 2 ? -1 : 1; 
+                    duckHit = false;
+                    bounceCount = 0;
+                    gameModule.updateDuckHealth(gameModule.round);
+                }, 1000); 
+            }
         }
+        duck.removeEventListener('click', handleDuckHit); 
+        duck.addEventListener('click', handleDuckHit); 
         lastFrameTime = currentTime;
     }
     requestAnimationFrame(moveDuck);
-    
 }
 
 function duckSprite(direction)  {
@@ -123,8 +118,7 @@ function duckSprite(direction)  {
     }
 }
 
-export function updateDuckSpeed(round) {
-    speed = 2 + round * 0.5;
-    console.log("speed= " + speed);
-}
+
+
+
 
