@@ -11,8 +11,8 @@ export const scoreHud = document.getElementById('score');
 scoreHud.textContent = playerModule.player.score;
 export let duckCounter = document.getElementById("hit");
 export let hitCounter = 0;
-let bulletTimeCounter = 5;
-const maxBulletTimeStacks = 5;
+let bulletTimeCounter = 0;
+const maxBulletTimeStacks = 7;
 let isBulletTimeReady = false;
 export let bulletTimeActive = false;
 const bulletTimeDuration = 10000;
@@ -39,6 +39,8 @@ export function changeWeapon(newWeapon) {
     setAmmo(weapon);
     console.log("Weapon changed to " + weapon.name);
     showMessage("Weapon changed to " + weapon.name);
+    roundHandler();
+    
 }
 
 gameScreen.addEventListener('click', () => {
