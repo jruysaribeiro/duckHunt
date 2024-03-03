@@ -64,15 +64,28 @@ function showDogAtLocation(x, y) {
     dog.style.position = "absolute";
     dog.style.left = x;
     dog.style.bottom = y;
-    dog.style.zIndex = 1000;
+    dog.style.zIndex = 1000; // showing up over the grass
+    dog.style.transform = "scale(2)"; // make it twice as big
     
     document.getElementById("gameScreen").appendChild(dog);
-    console.log("dog: " + dog);
 
-    //dog running away animation
+    // determining direction for the dog to run
+    const screenWidth = window.innerWidth;
+    const dogPositionX = parseInt(x, 10);
+    const moveTo = dogPositionX > (screenWidth / 2) ? (screenWidth - dog.offsetWidth) +  "px" : "-200px";
+
+    dog.style.transition = "left 2s ease-out";
+
+    // run to the side
+    setTimeout(() => {
+        dog.style.left = moveTo;
+    }, 500);
+
+    
+    //remove dog
     setTimeout(() => {
         dog.remove();
-    }, 2000);
+    }, 2500);
 }
 
 
