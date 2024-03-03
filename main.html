@@ -30,7 +30,10 @@
                         <h1>Settings</h1>
                     </div>
                     <div>
-                        <p id="difficultySlider">Difficulty</p>
+                        <div class="tooltip-container">
+                            <span class="tooltip">Choose which Difficulty you want to play</span>
+                            <p class="text" id="difficultySlider">Difficulty</p>
+                        </div> 
                         <input type="radio" id="easy" name="difficulty" value="1" checked>
                         <label for="easy">Easy</label>
                         <input type="radio" id="normal"name="difficulty" value="2">
@@ -40,14 +43,20 @@
                         
                     </div>
                     <div>
-                        <p id="soundToggle">Sound</p>
+                        <div class="tooltip-container">
+                            <span class="tooltip">Turn your Sound On or Off</span>
+                            <p class="text" id="soundToggle">Sound</p>
+                        </div> 
                         <label for="toggle" class="musicSettings">
                             <input type="checkbox" id="toggle">
                             <span class="slider"></span>
                         </label>
                     </div>
                     <div>
-                        <span class="label-text">Music</span>
+                        <div class="tooltip-container">
+                            <span class="tooltip">Turn your Music On or Off</span>
+                            <p class="text" id="soundToggle">Music</p>
+                        </div> 
                         <label for="toggle" class="musicSettings">
                             <input type="checkbox" id="toggle">
                             <span class="slider"></span>
