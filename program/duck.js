@@ -39,6 +39,7 @@ export function animateDuckFalling() {
         duck.style.animationName = 'fall-down';
         duckHit = true;
         let duckBottom = parseInt(window.getComputedStyle(duck).getPropertyValue('bottom'));
+
         if (duckBottom <= 0) {
             clearInterval(fallInterval);
             duck.style.display = "none"; // Hide the duck
@@ -48,6 +49,7 @@ export function animateDuckFalling() {
             positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5; 
             direction = positionX > window.innerWidth / 2 ? -1 : 1; 
             duck.classList.remove("falling");
+            showDogAtLocation(duck.style.left, "300px");
             requestAnimationFrame(moveDuck);
         } else {
             duck.style.bottom = duckBottom - 5 + 'px';
@@ -55,7 +57,23 @@ export function animateDuckFalling() {
     }, 20);
 }
 
+function showDogAtLocation(x, y) {
 
+    let dog = document.createElement("img");
+    dog.src = "resources/sprites/dog/gotOne.png";
+    dog.style.position = "absolute";
+    dog.style.left = x;
+    dog.style.bottom = y;
+    dog.style.zIndex = 1000;
+    
+    document.getElementById("gameScreen").appendChild(dog);
+    console.log("dog: " + dog);
+
+    //dog running away animation
+    setTimeout(() => {
+        dog.remove();
+    }, 2000);
+}
 
 
 
