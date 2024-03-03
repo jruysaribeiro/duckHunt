@@ -281,8 +281,8 @@
   }
 
 #shop img {
-    height: 2em;
-    width: 2em;
+    height: 3.5em;
+    width: 3.5em;
     margin-right: 0.5em;
 }
 
@@ -510,5 +510,53 @@ div input[type="radio"]:checked + label {
     100% {
       transform: translateX(0);
     }
+  }
+
+
+  /* Tooltips styling */
+
+  .tooltip-container {
+    color: #000000;
+    background: #63ADFF;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 17px;
+    padding: 0.7em 1.8em;
+    border-radius: 50px;
+  }
+  
+  .tooltip {
+    background-color: #63ADFF;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3em 0.6em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    border-radius: 60px;
+    border: 4px solid #000000;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .tooltip::before {
+    background-color: #63ADFF;
+    position: absolute;
+    content: "";
+    height: 0.6em;
+    width: 0.6em;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+  }
+  
+  .tooltip-container:hover .tooltip {
+    top: -100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   
