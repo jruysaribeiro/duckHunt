@@ -20,6 +20,6 @@ How to play
 - You can pause the game hitting "q" and go into the shop to buy new weapons.
 
 Authors
--José Ribeiro
--André Monteiro  
--Carlos Silva
+- José Ribeiro
+- André Monteiro  
+- Carlos Silva
