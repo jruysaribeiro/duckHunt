@@ -415,6 +415,10 @@
   #toggle {
     display: none;
   }
+
+  #toggle2 {
+    display: none;
+  }
   
   .slider {
     display: block;
@@ -441,6 +445,12 @@
   }
   
   #toggle:checked + .slider::after {
+    content: 'OFF';
+    background-color: #e03c3c;
+    transform: translateX(25px) rotate(360deg);
+  }
+
+  #toggle2:checked + .slider::after {
     content: 'OFF';
     background-color: #e03c3c;
     transform: translateX(25px) rotate(360deg);
