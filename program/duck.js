@@ -49,7 +49,7 @@ export function animateDuckFalling() {
             positionX = window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5; 
             direction = positionX > window.innerWidth / 2 ? -1 : 1; 
             duck.classList.remove("falling");
-            showDogAtLocation(duck.style.left, "300px");
+            showDogAtLocation(duck.style.left, "350px");
             requestAnimationFrame(moveDuck);
         } else {
             duck.style.bottom = duckBottom - 5 + 'px';
@@ -64,7 +64,7 @@ function showDogAtLocation(x, y) {
     dog.style.position = "absolute";
     dog.style.left = x;
     dog.style.bottom = y;
-    dog.style.zIndex = 1000; // showing up over the grass
+    dog.style.zIndex = 1; // showing up over the grass
     dog.style.transform = "scale(2)"; // make it twice as big
     
     document.getElementById("gameScreen").appendChild(dog);
@@ -72,9 +72,9 @@ function showDogAtLocation(x, y) {
     // determining direction for the dog to run
     const screenWidth = window.innerWidth;
     const dogPositionX = parseInt(x, 10);
-    const moveTo = dogPositionX > (screenWidth / 2) ? (screenWidth - dog.offsetWidth) +  "px" : "-200px";
+    const moveTo = "-200px"; // move down by 200px
 
-    dog.style.transition = "left 2s ease-out";
+    dog.style.transition = "bottom 4s ease-out";
 
     // run to the side
     setTimeout(() => {
