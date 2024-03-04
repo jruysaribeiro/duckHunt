@@ -4,6 +4,7 @@ It's a simple duck hunting game built using JavaScript, HTML, and CSS. The game 
 
 This game was developed during the Mindera Code Academy, as a project for front-end development.
 
+
 How to install
 To run the game locally on your machine, follow these steps:
 
