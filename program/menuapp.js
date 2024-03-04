@@ -4,12 +4,14 @@ import * as playerModule from './player.js';
 
 const startControl = document.getElementById('start');
 export const gameAudio = new Audio("/resources/sounds/intro.mp3");
+const volumeToggle = document.getElementById('toggle');
 
 startControl.addEventListener('click', () => {
     console.log('start clicked');
     document.getElementById('menu').style.display = 'none';
     document.getElementById('game').style.display = 'block';
     gameModule.startGame();
+    gameAudio.volume = 0.2;
     gameAudio.play();
 });
 
